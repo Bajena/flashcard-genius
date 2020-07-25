@@ -1,6 +1,6 @@
-<% tab_name = "tabs_#{rand(1000000)}" %>
-<% tab1_value = rand(1000000) %>
-<% tab2_value = rand(1000000) %>
+<% tab_name = "tabs_#{rand}" %>
+<% tab1_id = "#{tab_name}_tab1" %>
+<% tab2_id = "#{tab_name}_tab2" %>
 
 <div class="xs-12 sm-6 md-4 lg-3 col align-top flashcard-column">
   <div class="card" style="<%# width: 20rem; %>">
@@ -8,24 +8,24 @@
 
     <div class="card-body">
       <div class="row tabs">
-        <input class="tab1" id="<%= tab_name %>_tab1" type="radio" name="<%= tab_name %>" checked>
-        <label for="<%= tab_name %>_tab1">Question</label>
+        <input id="<%= tab1_id %>" type="radio" name="<%= tab_name %>" checked>
+        <label for="<%= tab1_id %>">Question</label>
 
-        <input class="tab2" id="<%= tab_name %>_tab2" type="radio" name="<%= tab_name %>">
-        <label for="<%= tab_name %>_tab2">Answer</label>
+        <input id="<%= tab2_id %>" type="radio" name="<%= tab_name %>">
+        <label for="<%= tab2_id %>">Answer</label>
 
-        <div class="content content1">
-          <h4 class="card-title"><%= question %></h4>
+        <div id="content1" class="content">
+          <h4 class="card-title flashcard-title"><%= question %></h4>
           <!-- <h5 class="card-subtitle">Nice looking subtitle.</h5> -->
           <% if question_example %>
-            <p class="card-text"><%= question_example %></p>
+            <p class="card-text flashcard-example"><%= question_example %></p>
           <% end %>
         </div>
-        <div class="content content2">
-          <h4 class="card-title"><%= answer %></h4>
+        <div id="content2" class="content">
+          <h4 class="card-title flashcard-title"><%= answer %></h4>
           <!-- <h5 class="card-subtitle">Nice looking subtitle.</h5> -->
           <% if answer_example %>
-            <p class="card-text"><%= answer_example %></p>
+            <p class="card-text flashcard-example"><%= answer_example %></p>
           <% end %>
         </div>
       </div>

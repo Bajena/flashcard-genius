@@ -4,19 +4,38 @@
 
 .flashcard-column {
   .tabs {
+    margin-bottom: 0;
+
     .content {
-      padding-top: 1.5rem;
+      padding-top: 1rem;
+
+      .flashcard-title {
+        margin-bottom: 0;
+      }
+
+      .flashcard-example {
+        margin-top: 0.5rem;
+        margin-bottom: 0;
+      }
     }
   }
 }
 
+// Overrides, fixes
 
 .tabs {
   input {
+    // Fixes https://github.com/papercss/papercss/blob/master/src/components/_tabs.scss
+    // by adding ends-with selector instead of exact match.
     @for $num from 1 through 5 {
-      &.tab#{$num}:checked~div.content#{$num} {
+      &[id$='tab#{$num}']:checked~div[id='content#{$num}'] {
         display: block;
       }
     }
+  }
+
+  // https://github.com/papercss/papercss/pull/205/files
+  .content {
+    flex-basis: 100%;
   }
 }
