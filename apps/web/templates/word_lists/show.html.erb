@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-12 col">
+    <div class="row">
+      <%= render partial: "shared/flashcard", locals: {
+        question: "Simpatico(a)",
+        question_example: "La ragazza sembra simpatica.",
+        answer: "Sympatyczny(a)",
+        answer_example: "Ta dziewczyna wydaje się sympatyczna"
+      } %>
+      <%= render partial: "shared/flashcard", locals: {
+        question: "Sinistro",
+        question_example: nil,
+        answer: "Lewy",
+        answer_example: nil
+      } %>
+      <%= render partial: "shared/flashcard", locals: {
+        question: "Per favore",
+        question_example: "Mi aiuti per favore?",
+        answer: "Proszę; przepraszam",
+        answer_example: "Pomożesz mi, proszę?"
+      } %>
+    </div>
+  </div>
+</div>
