@@ -15,6 +15,11 @@ end
 
 group :test, :development do
   gem 'dotenv', '~> 2.4'
+  gem "pry-rescue"
+  gem "pry-stack_explorer"
+  gem "pry-nav"
+  gem "rb-fsevent", require: false  # mac os x
+  gem "rb-readline" # Fix for pry history
 end
 
 group :test do

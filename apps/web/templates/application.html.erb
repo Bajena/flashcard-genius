@@ -12,7 +12,13 @@
 <body>
   <%= render partial: "shared/navbar" %>
   <div class="main-content">
-    <%= yield %>
+    <div class="row">
+      <div class="col-12 col">
+        <%= yield %>
+      </div>
+    </div>
   </div>
+
+  <%= javascript 'application' %>
 </body>
 </html>

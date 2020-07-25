@@ -15,17 +15,17 @@
         <label for="<%= tab2_id %>">Answer</label>
 
         <div id="content1" class="content">
-          <h4 class="card-title flashcard-title"><%= question %></h4>
+          <h4 class="card-title flashcard-title"><%= word.question %></h4>
           <!-- <h5 class="card-subtitle">Nice looking subtitle.</h5> -->
-          <% if question_example %>
-            <p class="card-text flashcard-example"><%= question_example %></p>
+          <% if word.question_example %>
+            <p class="card-text flashcard-example"><%= word.question_example %></p>
           <% end %>
         </div>
         <div id="content2" class="content">
-          <h4 class="card-title flashcard-title"><%= answer %></h4>
+          <h4 class="card-title flashcard-title"><%= word.answer %></h4>
           <!-- <h5 class="card-subtitle">Nice looking subtitle.</h5> -->
-          <% if answer_example %>
-            <p class="card-text flashcard-example"><%= answer_example %></p>
+          <% if word.answer_example %>
+            <p class="card-text flashcard-example"><%= word.answer_example %></p>
           <% end %>
         </div>
       </div>
