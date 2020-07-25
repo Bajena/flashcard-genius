@@ -1,0 +1,2 @@
+module HanamiApp
+end

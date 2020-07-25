@@ -1,0 +1,3 @@
+project=hanami_app
+test=rspec
+template=erb

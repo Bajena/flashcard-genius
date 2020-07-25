@@ -1,0 +1,34 @@
+<% tab_name = "tabs_#{rand(1000000)}" %>
+<% tab1_value = rand(1000000) %>
+<% tab2_value = rand(1000000) %>
+
+<div class="xs-12 sm-6 md-4 lg-3 col align-top flashcard-column">
+  <div class="card" style="<%# width: 20rem; %>">
+    <!-- <img src="https://picsum.photos/768" alt="Card example image"> -->
+
+    <div class="card-body">
+      <div class="row tabs">
+        <input class="tab1" id="<%= tab_name %>_tab1" type="radio" name="<%= tab_name %>" checked>
+        <label for="<%= tab_name %>_tab1">Question</label>
+
+        <input class="tab2" id="<%= tab_name %>_tab2" type="radio" name="<%= tab_name %>">
+        <label for="<%= tab_name %>_tab2">Answer</label>
+
+        <div class="content content1">
+          <h4 class="card-title"><%= question %></h4>
+          <!-- <h5 class="card-subtitle">Nice looking subtitle.</h5> -->
+          <% if question_example %>
+            <p class="card-text"><%= question_example %></p>
+          <% end %>
+        </div>
+        <div class="content content2">
+          <h4 class="card-title"><%= answer %></h4>
+          <!-- <h5 class="card-subtitle">Nice looking subtitle.</h5> -->
+          <% if answer_example %>
+            <p class="card-text"><%= answer_example %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

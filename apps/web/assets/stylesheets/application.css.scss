@@ -1,0 +1,22 @@
+.main-content {
+  margin-top: 66px;
+}
+
+.flashcard-column {
+  .tabs {
+    .content {
+      padding-top: 1.5rem;
+    }
+  }
+}
+
+
+.tabs {
+  input {
+    @for $num from 1 through 5 {
+      &.tab#{$num}:checked~div.content#{$num} {
+        display: block;
+      }
+    }
+  }
+}
