@@ -1,0 +1,87 @@
+<% unless params.valid? %>
+  <div class="errors">
+    <p>There was a problem with your submission</p>
+    <ul>
+      <% params.error_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%=
+  form_for :word_list, submit_path, method: http_method, id: "word-list-form", params: {}, values: { word_list: word_list, words: word_list.words } do
+    div class: "row" do
+      div class: "col sm-12 form-group" do
+        label      :name
+        text_field :name
+      end
+
+      div class: "row" do
+        hr
+      end
+    end
+
+    div class: "row padding-none" do
+      div id: "word-forms", class: "col sm-12 padding-none" do
+        fields_for_collection :words do |index, word|
+          div class: "row word-form", id: "#{'word-form-template' if word.id == 0}", 'data-index': index do
+            div class: "col md-3" do
+              div class: "form-group" do
+                label      :question
+                text_field :question, class: "input-block"
+              end
+            end
+
+            div class: "col md-9" do
+              div class: "form-group" do
+                label      :question_example
+                text_field :question_example, class: "input-block"
+              end
+            end
+
+            div class: "col md-3" do
+              div class: "form-group" do
+                label      :answer
+                text_field :answer, class: "input-block"
+              end
+            end
+
+            div class: "col md-9" do
+              div class: "form-group" do
+                label      :answer_example
+                text_field :answer_example, class: "input-block"
+              end
+            end
+
+            div class: "col sm-12" do
+              div class: "form-group" do
+                button class: "btn-danger remove-word-button", type: "button" do
+                  "Remove"
+                end
+              end
+            end
+
+            div class: "row" do
+              hr
+            end
+          end
+        end
+      end
+    end
+
+    div class: "row flex-spaces" do
+      div class: "form-group" do
+        button class: "btn-secondary", id: "add-new-word-button", type: "button" do
+          "Add word"
+        end
+      end
+    end
+
+    div class: "row" do
+      div class: "col sm-12 form-group" do
+        submit submit_button_text
+      end
+    end
+  end
+%>

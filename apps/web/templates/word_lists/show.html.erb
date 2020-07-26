@@ -1,3 +1,13 @@
+<div class="row flashcard-title-row">
+  <div class="col sm-12">
+    <h4 class="flashcard-title">
+      <strong>List:</strong>
+      <%= word_list.name %>
+    </h4>
+    <%= link_to 'Edit list', routes.edit_word_list_path(word_list.id), class: 'paper-btn btn-secondary' %>
+  </div>
+</div>
+
 <div class="row">
   <% word_list.words.each do |word| %>
     <%= render partial: "shared/flashcard", locals: { word: word } %>

@@ -2,6 +2,14 @@
   margin-top: 66px;
 }
 
+.flashcard-title-row {
+  margin-bottom: 0 !important;
+
+  .flashcard-title {
+    margin-top: 0;
+  }
+}
+
 .flashcard-column {
   .tabs {
     margin-bottom: 0;
@@ -11,6 +19,8 @@
 
       .flashcard-title {
         margin-bottom: 0;
+
+        word-break: break-all;
       }
 
       .flashcard-example {
