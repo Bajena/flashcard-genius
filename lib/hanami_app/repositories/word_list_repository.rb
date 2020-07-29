@@ -18,4 +18,16 @@ class WordListRepository < Hanami::Repository
   def find_with_words(id)
     aggregate(:words).where(id: id).map_to(WordList).one
   end
+
+  def listing
+    word_lists.select(
+      :id,
+      :name,
+      :created_at,
+      words[:id].func { int::count(id).as(:word_count) }
+    ).left_join(:words).
+      group(:id).
+      map.
+      to_a
+  end
 end

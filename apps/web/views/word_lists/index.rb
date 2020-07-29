@@ -1,11 +1,8 @@
 module Web
   module Views
     module WordLists
-      class Update
+      class Index
         include Web::View
-        include WithWordListForm
-
-        template 'word_lists/edit'
       end
     end
   end

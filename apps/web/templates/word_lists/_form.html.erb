@@ -1,11 +1,13 @@
 <% unless params.valid? %>
-  <div class="errors">
-    <p>There was a problem with your submission</p>
-    <ul>
-      <% params.error_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+  <div class="row form-errors">
+    <div class="col sm-12">
+      <p>There was a problem with your submission:</p>
+      <ul>
+        <% params.error_messages.each do |message| %>
+          <li class="form-error"><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 <% end %>
 

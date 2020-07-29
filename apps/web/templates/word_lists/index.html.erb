@@ -1,0 +1,20 @@
+<table class="table-hover table-alternating">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Words</th>
+      <th>Created At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% word_lists.each.with_index do |w, i| %>
+      <tr>
+        <td><%= i + 1 %></td>
+        <td><%= w[:name] %></td>
+        <td><%= w[:word_count] %></td>
+        <td><%= w[:created_at] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
