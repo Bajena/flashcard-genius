@@ -22,7 +22,13 @@
     var newTemplate = this.template.cloneNode(true);
     newTemplate.dataset.index = newIndex;
     wordFormsDiv.insertAdjacentHTML('beforeend', newTemplate.outerHTML.replace(/words\-0/g, "words-" + newIndex));
-    setupRemoveButton(wordFormsDiv.lastChild.querySelector('.remove-word-button'));
+
+    var newlyInsertedForm = wordFormsDiv.lastChild;
+    setupRemoveButton(newlyInsertedForm.querySelector('.remove-word-button'));
+
+    var firstTextBox = newlyInsertedForm.querySelector('input');
+    firstTextBox.focus();
+    firstTextBox.scrollIntoView();
   }
 
   function setupNewWordTemplate() {
