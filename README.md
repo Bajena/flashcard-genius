@@ -1,6 +1,6 @@
 # Flashcards
 
-An app for managing sets of language learning flashcards. Built using Hanami framework.
+An app for managing sets of language learning flashcards. Built using [Hanami](https://guides.hanamirb.org/) Ruby framework and [PaperCSS](https://www.getpapercss.com/) framework.
 
 ![image](https://user-images.githubusercontent.com/5732023/88967360-fdf3a600-d2ad-11ea-93c5-4cc5c11d43a0.png)
 
