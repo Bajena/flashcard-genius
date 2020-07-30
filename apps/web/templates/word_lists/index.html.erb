@@ -1,4 +1,4 @@
-<table class="table-hover table-alternating">
+<table class="table-hover">
   <thead>
     <tr>
       <th>#</th>
@@ -14,6 +14,7 @@
         <td><%= w[:name] %></td>
         <td><%= w[:word_count] %></td>
         <td><%= w[:created_at] %></td>
+        <td><%= link_to "Edit", routes.edit_word_list_path(w[:id]), class: "paper-btn" %></td>
       </tr>
     <% end %>
   </tbody>
