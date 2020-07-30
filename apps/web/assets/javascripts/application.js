@@ -3,6 +3,8 @@
     return;
   }
 
+  var formTemplate;
+
   function setupRemoveButton(btn) {
     btn.onclick = function() {
       if (document.getElementsByClassName('word-form').length === 1) {
@@ -19,9 +21,10 @@
     var newIndex = (lastWord ? parseInt(lastWord.dataset.index) : -1) + 1;
 
     var wordFormsDiv = document.getElementById('word-forms');
-    var newTemplate = this.template.cloneNode(true);
+    var newTemplate = formTemplate.cloneNode(true);
     newTemplate.dataset.index = newIndex;
-    wordFormsDiv.insertAdjacentHTML('beforeend', newTemplate.outerHTML.replace(/words\-0/g, "words-" + newIndex));
+    var newFormHtml = newTemplate.outerHTML.replace(/words\-0/g, "words-" + newIndex);
+    wordFormsDiv.insertAdjacentHTML('beforeend', newFormHtml);
 
     var newlyInsertedForm = wordFormsDiv.lastChild;
     setupRemoveButton(newlyInsertedForm.querySelector('.remove-word-button'));
@@ -32,9 +35,9 @@
   }
 
   function setupNewWordTemplate() {
-    this.template = document.getElementById('word-form-template');
-    this.template.classList.remove('word-form-template');
-    this.template.remove();
+    formTemplate = document.getElementById('word-form-template');
+    formTemplate.classList.remove('word-form-template');
+    formTemplate.remove();
 
     document.getElementById('add-new-word-button').onclick = addNewWordForm;
   }
