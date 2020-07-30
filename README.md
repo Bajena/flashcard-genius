@@ -1,6 +1,8 @@
-# Hanami App
+# Flashcards
 
-Welcome to your new Hanami project!
+An app for managing sets of language learning flashcards. Built using Hanami framework.
+
+![image](https://user-images.githubusercontent.com/5732023/88967360-fdf3a600-d2ad-11ea-93c5-4cc5c11d43a0.png)
 
 ## Setup
 
@@ -29,5 +31,3 @@ How to prepare (create and migrate) DB for `development` and `test` environments
 
 % HANAMI_ENV=test bundle exec hanami db prepare
 ```
-
-Explore Hanami [guides](https://guides.hanamirb.org/), [API docs](http://docs.hanamirb.org/1.3.3/), or jump in [chat](http://chat.hanamirb.org) for help. Enjoy! 🌸
