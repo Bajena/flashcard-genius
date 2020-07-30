@@ -15,7 +15,8 @@
 
   function addNewWordForm() {
     var words = document.getElementsByClassName('word-form');
-    var newIndex = parseInt(words[words.length - 1].dataset.index || -1) + 1;
+    var lastWord = words[words.length - 1];
+    var newIndex = (lastWord ? parseInt(lastWord.dataset.index) : -1) + 1;
 
     var wordFormsDiv = document.getElementById('word-forms');
     var newTemplate = this.template.cloneNode(true);
