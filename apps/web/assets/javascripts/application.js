@@ -5,14 +5,24 @@
 
   var formTemplate;
 
+  function isOnlyOneWordLeft() {
+    return document.getElementsByClassName('word-form').length <= 1
+  }
+
   function setupRemoveButton(btn) {
     btn.onclick = function() {
-      if (document.getElementsByClassName('word-form').length === 1) {
+      if (isOnlyOneWordLeft()) {
         return;
       }
 
       this.closest('.word-form').remove();
     }
+  }
+
+  function focusTextBox(wordForm) {
+    var firstTextBox = wordForm.querySelector('input');
+    firstTextBox.focus();
+    firstTextBox.scrollIntoView();
   }
 
   function addNewWordForm() {
@@ -29,9 +39,7 @@
     var newlyInsertedForm = wordFormsDiv.lastChild;
     setupRemoveButton(newlyInsertedForm.querySelector('.remove-word-button'));
 
-    var firstTextBox = newlyInsertedForm.querySelector('input');
-    firstTextBox.focus();
-    firstTextBox.scrollIntoView();
+    focusTextBox(newlyInsertedForm);
   }
 
   function setupNewWordTemplate() {
@@ -56,6 +64,23 @@
         addNewWordForm();
         event.stopPropagation();
         event.preventDefault();
+        return;
+      }
+
+      if ((event.metaKey || event.ctrlKey) && event.key === 'Backspace') {
+        if (isOnlyOneWordLeft()) { return; }
+        if (!document.activeElement) { return; }
+
+        var word = document.activeElement.closest('.word-form');
+        if (!word) { return; }
+
+        word.remove();
+        var words = document.getElementsByClassName('word-form');
+        focusTextBox(words[words.length - 1]);
+
+        event.stopPropagation();
+        event.preventDefault();
+        return;
       }
     });
   }
