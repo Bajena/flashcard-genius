@@ -8,15 +8,23 @@
     </tr>
   </thead>
   <tbody>
-    <% word_lists.each.with_index do |w, i| %>
+    <% if word_lists.any? %>
+      <% word_lists.each.with_index do |w, i| %>
+        <tr>
+          <td><%= i + 1 %></td>
+          <td><%= w[:name] %></td>
+          <td><%= w[:word_count] %></td>
+          <td><%= w[:created_at] %></td>
+          <td>
+            <%= link_to "Show", routes.word_list_path(w[:id]), class: "paper-btn" %>
+            <%= link_to "Edit", routes.edit_word_list_path(w[:id]), class: "paper-btn" %>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
       <tr>
-        <td><%= i + 1 %></td>
-        <td><%= w[:name] %></td>
-        <td><%= w[:word_count] %></td>
-        <td><%= w[:created_at] %></td>
-        <td>
-          <%= link_to "Show", routes.word_list_path(w[:id]), class: "paper-btn" %>
-          <%= link_to "Edit", routes.edit_word_list_path(w[:id]), class: "paper-btn" %>
+        <td colspan="10" align="center">
+          No lists present. Please create a new one.
         </td>
       </tr>
     <% end %>
