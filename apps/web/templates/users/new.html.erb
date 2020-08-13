@@ -1,0 +1,51 @@
+<div class="row container container-sm paper">
+  <div class="col sm-12">
+    <div class="row flex-spaces">
+      <div class="col lg-6 md-8 sm-12">
+        <h3 class="margin-bottom-none margin-top-none">New user</h3>
+      </div>
+    </div>
+
+    <% unless params.valid? %>
+      <div class="row form-errors flex-spaces">
+        <div class="col lg-6 md-8 sm-12">
+          <p>There was a problem with your submission:</p>
+          <ul>
+            <% params.error_messages.each do |message| %>
+              <li class="form-error"><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+
+    <%=
+      form_for :user, routes.users_path do
+
+        div class: "row flex-spaces" do
+          div class: "col lg-6 md-8 sm-12" do
+            div class: "form-group" do
+              label      :email
+              email_field :email, class: "input-block"
+            end
+          end
+        end
+
+        div class: "row flex-spaces" do
+          div class: "col lg-6 md-8 sm-12" do
+            div class: "form-group" do
+              label      :password
+              password_field :password, class: "input-block"
+            end
+          end
+        end
+
+        div class: "row flex-spaces" do
+          div class: "col lg-6 md-8 sm-12" do
+            submit "Signup"
+          end
+        end
+      end
+    %>
+  </div>
+</div>
