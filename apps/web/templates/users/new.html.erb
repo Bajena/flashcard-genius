@@ -6,12 +6,12 @@
       </div>
     </div>
 
-    <% unless params.valid? %>
+    <% if error_messages.any? %>
       <div class="row form-errors flex-spaces">
         <div class="col lg-6 md-8 sm-12">
           <p>There was a problem with your submission:</p>
           <ul>
-            <% params.error_messages.each do |message| %>
+            <% error_messages.each do |message| %>
               <li class="form-error"><%= message %></li>
             <% end %>
           </ul>
