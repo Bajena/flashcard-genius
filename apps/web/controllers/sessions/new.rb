@@ -1,6 +1,6 @@
 module Web
   module Controllers
-    module Users
+    module Sessions
       class New
         include Web::Action
         include Web::Authentication
@@ -9,6 +9,10 @@ module Web
         expose :error_messages
 
         def call(params)
+          if current_user
+            return redirect_to routes.word_lists_path
+          end
+
           @user = User.new
           @error_messages = []
         end

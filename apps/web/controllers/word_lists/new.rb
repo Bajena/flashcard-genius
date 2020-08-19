@@ -3,6 +3,7 @@ module Web
     module WordLists
       class New
         include Web::Action
+        include Web::Authentication
 
         expose :word_list
 

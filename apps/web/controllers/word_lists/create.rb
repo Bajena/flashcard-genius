@@ -5,6 +5,7 @@ module Web
     module WordLists
       class Create
         include Web::Action
+        include Web::Authentication
 
         params WordListParams
 

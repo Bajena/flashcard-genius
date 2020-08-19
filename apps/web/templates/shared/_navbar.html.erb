@@ -5,7 +5,7 @@
   <div class="collapsible">
     <input id="collapsible1" type="checkbox" name="collapsible1">
     <button>
-    <label for="collapsible1">
+      <label for="collapsible1">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
@@ -14,7 +14,22 @@
     <div class="collapsible-body">
       <ul class="inline">
         <li><%= link_to '+ New list', routes.new_word_list_path %></li>
-        <li><%= link_to 'My sets', routes.word_lists_path %></li>
+
+        <% if current_user %>
+          <li><%= link_to 'My lists', routes.word_lists_path %></li>
+          <li>
+            <%=
+              form_for :word, routes.logout_path, method: :delete do
+                a href: "#", onclick: "this.closest('form').submit();return false;" do
+                  "Logout"
+                end
+              end
+            %>
+
+          </li>
+        <% else %>
+          <li><%= link_to 'Sign in', routes.login_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>

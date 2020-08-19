@@ -3,6 +3,7 @@ module Web
     module WordLists
       class Index
         include Web::Action
+        include Web::Authentication
 
         expose :word_lists
 
