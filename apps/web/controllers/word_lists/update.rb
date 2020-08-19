@@ -5,6 +5,7 @@ module Web
     module WordLists
       class Update
         include Web::Action
+        include Web::Authentication
 
         expose :word_list
 

@@ -2,25 +2,12 @@
   <div class="col sm-12">
     <div class="row flex-spaces">
       <div class="col lg-6 md-8 sm-12">
-        <h3 class="margin-bottom-none margin-top-none">Signup</h3>
+        <h3 class="margin-bottom-none margin-top-none">Sign in</h3>
       </div>
     </div>
 
-    <% if error_messages.any? %>
-      <div class="row form-errors flex-spaces">
-        <div class="col lg-6 md-8 sm-12">
-          <p>There was a problem with your submission:</p>
-          <ul>
-            <% error_messages.each do |message| %>
-              <li class="form-error"><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    <% end %>
-
     <%=
-      form_for :user, routes.users_path do
+      form_for :user, routes.login_path do
 
         div class: "row flex-spaces" do
           div class: "col lg-6 md-8 sm-12" do
@@ -40,19 +27,18 @@
           end
         end
 
-        div class: "row flex-spaces" do
+        div class: "row flex-center" do
           div class: "col" do
-            submit "Signup"
+            submit "Login"
           end
         end
       end
     %>
-
     <hr>
     <div class="row flex-spaces">
       <div class="col lg-6 md-8 sm-12">
         <p>
-          Already have an account? Click <%= link_to "here", routes.login_path %> to sign in.
+          Don't have an account yet? Click <%= link_to "here", routes.new_user_path %> to sign up.
         </p>
       </div>
     </div>
