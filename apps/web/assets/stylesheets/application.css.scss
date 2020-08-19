@@ -37,21 +37,3 @@
   }
 }
 
-// Overrides, fixes
-
-.tabs {
-  input {
-    // Fixes https://github.com/papercss/papercss/blob/master/src/components/_tabs.scss
-    // by adding ends-with selector instead of exact match.
-    @for $num from 1 through 5 {
-      &[id$='tab#{$num}']:checked~div[id$='content#{$num}'] {
-        display: block;
-      }
-    }
-  }
-
-  // https://github.com/papercss/papercss/pull/205/files
-  .content {
-    flex-basis: 100%;
-  }
-}
