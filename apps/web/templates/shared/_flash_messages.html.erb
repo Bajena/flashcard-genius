@@ -1,0 +1,12 @@
+<% unless flash.empty? %>
+  <% types = { info: "secondary", error: "danger", warn: "warning", success: "success" } %>
+  <div class="col sm-12">
+    <% flash.each.with_index do |(type, msg), i| %>
+      <input class="alert-state" id="alert-<%= i %>" type="checkbox">
+      <div class="alert alert-<%= types[type] %> dismissible">
+        <%= msg %>
+        <label class="btn-close" for="alert-<%= i %>">X</label>
+      </div>
+    <% end %>
+  </div>
+<% end %>
