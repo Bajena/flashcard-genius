@@ -11,7 +11,10 @@
 </head>
 <body>
   <%= render partial: "shared/navbar" %>
+
   <div class="main-content">
+    <%= render partial: "shared/flash_messages" %>
+
     <div class="row">
       <div class="col-12 col">
         <%= yield %>
