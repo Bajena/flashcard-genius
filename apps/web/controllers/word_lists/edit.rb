@@ -9,6 +9,8 @@ module Web
 
         def call(params)
           @word_list = WordListRepository.new.find_with_words(params[:id])
+
+          halt 404 unless @word_list
         end
       end
     end
