@@ -12,7 +12,7 @@ RSpec.describe CreateUser do
       expect(result.successful?).to be(true)
     end
 
-    it "creates a Book with correct title and author" do
+    it "creates a User with email and password" do
       expect(result.user.email).to eq("user@email.com")
       expect(result.user.password_digest).to be_a(String)
     end
