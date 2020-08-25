@@ -3,6 +3,7 @@ module Web
     module Users
       class Create
         include Web::Action
+        include Web::Authentication
 
         expose :error_messages
         expose :user

@@ -1,4 +1,5 @@
 require 'database_cleaner'
+require 'rspec/hanami'
 
 # Require this file for unit tests
 ENV['HANAMI_ENV'] ||= 'test'
@@ -27,6 +28,7 @@ Hanami::Utils.require!("#{__dir__}/support")
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
+  config.include RSpec::Hanami::Matchers
 
   config.before(:suite) do
     FactoryBot.find_definitions

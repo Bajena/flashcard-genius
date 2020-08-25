@@ -19,13 +19,14 @@ class WordListRepository < Hanami::Repository
     aggregate(:words).where(id: id).map_to(WordList).one
   end
 
-  def listing
-    word_lists.select(
+  def listing(user_id:)
+    word_lists.where(user_id: user_id).select(
       :id,
       :name,
       :created_at,
       words[:id].func { int::count(id).as(:word_count) }
-    ).left_join(:words).
+    ).
+      left_join(:words).
       group(:id).
       map.
       to_a

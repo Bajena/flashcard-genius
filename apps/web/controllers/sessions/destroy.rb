@@ -7,7 +7,7 @@ module Web
         def call(params)
           session.delete(:user_id)
 
-          redirect_to routes.word_lists_path
+          redirect_to routes.login_path
         end
       end
     end

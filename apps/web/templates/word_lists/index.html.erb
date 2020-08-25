@@ -24,7 +24,7 @@
     <% else %>
       <tr>
         <td colspan="10" align="center">
-          No lists present. Please create a new one.
+          No lists present. You can create a new one <%= link_to "here", routes.new_word_list_path %>.
         </td>
       </tr>
     <% end %>

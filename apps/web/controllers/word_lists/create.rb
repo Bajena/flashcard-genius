@@ -13,7 +13,9 @@ module Web
 
         def call(params)
           if params.valid?
-            wl = WordListRepository.new.create_with_words(params[:word_list])
+            wl = WordListRepository.new.create_with_words(
+              params[:word_list].merge(user_id: current_user&.id)
+            )
 
             redirect_to routes.word_list_path(wl.id)
           else
