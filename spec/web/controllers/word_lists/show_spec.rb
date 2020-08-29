@@ -13,7 +13,7 @@ RSpec.describe Web::Controllers::WordLists::Show, type: :action do
   let(:exposed_list) { action.exposures[:word_list] }
 
   context "when list with given id doesn't exist" do
-    let(:word_list_id) { 0 }
+    let(:word_list_id) { SecureRandom.uuid }
 
     it "renders 404" do
       expect(response[0]).to eq 404
