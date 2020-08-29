@@ -12,13 +12,19 @@ module Web
         params WordListParams
 
         def call(params)
-          if params.valid?
-            wl = WordListRepository.new.update_with_words(params[:id], params[:word_list])
+          id = params.env[:id]
+          wl = WordListRepository.new.find(id)
 
-            redirect_to routes.word_list_path(wl.id)
+          halt 404 if !wl
+          halt 404 if !wl.anonymous? && wl.user_id != current_user&.id
+
+          if params.valid?
+            WordListRepository.new.update_with_words(id, params[:word_list])
+
+            redirect_to routes.word_list_path(id)
           else
             self.status = 422
-            @word_list = WordList.new({ id: params[:id] }.merge(params[:word_list]))
+            @word_list = WordList.new({ id: id }.merge(params[:word_list]))
           end
         end
       end

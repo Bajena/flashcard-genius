@@ -39,6 +39,13 @@ RSpec.describe Web::Controllers::WordLists::Show, type: :action do
         expect(exposed_list.id).to eq(word_list.id)
       end
     end
+
+    context "when list belongs to the user" do
+      it "shows the list" do
+        expect(response[0]).to eq 200
+        expect(exposed_list.id).to eq(word_list.id)
+      end
+    end
   end
 
   context "when user isn't logged in" do

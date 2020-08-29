@@ -1,9 +1,68 @@
 RSpec.describe Web::Controllers::WordLists::Edit, type: :action do
   let(:action) { described_class.new }
-  let(:params) { Hash[] }
+  let(:response) { action.call(params) }
+  let(:params) { { 'rack.session' => session }.merge(query_params) }
+  let(:query_params) { { id: word_list_id } }
+  let(:word_list_id) { word_list.id }
+  let(:session) { {} }
+  let(:user) { create(:user) }
+  let(:other_user) { create(:user) }
+  let!(:word_list) { create(:word_list, :with_words, user_id: word_list_user_id) }
+  let(:word_list_user_id) { user.id }
+  let!(:other_user_word_list) { create(:word_list, user_id: other_user.id) }
+  let(:exposed_list) { action.exposures[:word_list] }
 
-  it 'is successful' do
-    response = action.call(params)
-    expect(response[0]).to eq 200
+  context "when list with given id doesn't exist" do
+    let(:word_list_id) { SecureRandom.uuid }
+
+    it "renders 404" do
+      expect(response[0]).to eq 404
+    end
+  end
+
+  context "when user is logged in" do
+    let(:session) { { user_id: user.id } }
+
+    context "when list belongs to another user" do
+      let(:word_list_id) { other_user_word_list.id }
+
+      it "renders 404" do
+        expect(response[0]).to eq 404
+      end
+    end
+
+    context "when list is anonymous" do
+      let(:word_list_user_id) { nil }
+
+      it "exposes the list with words" do
+        expect(response[0]).to eq 200
+        expect(exposed_list.id).to eq(word_list.id)
+        expect(exposed_list.words.length).to eq(1)
+      end
+    end
+
+    context "when list belongs to the user" do
+      it "shows the list" do
+        expect(response[0]).to eq 200
+        expect(exposed_list.id).to eq(word_list.id)
+      end
+    end
+  end
+
+  context "when user isn't logged in" do
+    context "when list belongs to a user" do
+      it "renders 404" do
+        expect(response[0]).to eq 404
+      end
+    end
+
+    context "when list is anonymous" do
+      let(:word_list_user_id) { nil }
+
+      it "shows the list" do
+        expect(response[0]).to eq 200
+        expect(exposed_list.id).to eq(word_list.id)
+      end
+    end
   end
 end
