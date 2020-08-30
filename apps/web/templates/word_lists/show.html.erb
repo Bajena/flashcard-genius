@@ -3,9 +3,12 @@
     <h4 class="flashcard-title">
       <strong>List:</strong>
       <%= word_list.name %>
-      <span class="badge secondary"><%= word_list.words.length %></span>
+      <span class="badge secondary"><%= word_list.words.length %> card(s)</span>
     </h4>
-    <%= link_to 'Edit list', routes.edit_word_list_path(word_list.id), class: 'paper-btn btn-secondary' %>
+
+    <% if word_list.editable_by?(current_user) %>
+      <%= link_to 'Edit list', routes.edit_word_list_path(word_list.id), class: 'paper-btn btn-secondary' %>
+    <% end %>
   </div>
 </div>
 

@@ -50,8 +50,9 @@ RSpec.describe Web::Controllers::WordLists::Show, type: :action do
 
   context "when user isn't logged in" do
     context "when list belongs to a user" do
-      it "renders 404" do
-        expect(response[0]).to eq 404
+      it "shows the list" do
+        expect(response[0]).to eq 200
+        expect(exposed_list.id).to eq(word_list.id)
       end
     end
 

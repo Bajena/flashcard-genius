@@ -16,7 +16,7 @@
           <td><%= w[:word_count] %></td>
           <td><%= w[:created_at] %></td>
           <td>
-            <%= link_to "Show", routes.word_list_path(w[:id]), class: "paper-btn" %>
+            <%= link_to "Browse", routes.word_list_path(w[:id]), class: "paper-btn" %>
             <%= link_to "Edit", routes.edit_word_list_path(w[:id]), class: "paper-btn" %>
           </td>
         </tr>
