@@ -1,8 +1,13 @@
 RSpec.describe Web::Controllers::WordLists::Update, type: :action do
   let(:action) { described_class.new }
   let(:response) { action.call(params) }
-  let(:params) { { 'rack.session' => session }.merge(query_params) }
-  let(:query_params) do
+  let(:params) do
+    query_params.merge(
+      'rack.session' => session,
+      'router.params' => router_params
+    )
+  end
+  let(:router_params) do
     {
       id: word_list_id,
       word_list: word_list_params

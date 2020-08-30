@@ -12,7 +12,7 @@ module Web
         params WordListParams
 
         def call(params)
-          id = params.env[:id]
+          id = params[:id]
           wl = WordListRepository.new.find(id)
 
           halt 404 if !wl
