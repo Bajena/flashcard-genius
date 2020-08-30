@@ -1,0 +1,2 @@
+module FlashcardGenius
+end

@@ -1,7 +1,7 @@
 require 'bundler/setup'
 require 'hanami/setup'
 require 'hanami/model'
-require_relative '../lib/hanami_app'
+require_relative '../lib/flashcard_genius'
 require_relative '../apps/web/application'
 
 Hanami.configure do
@@ -14,9 +14,9 @@ Hanami.configure do
     # Available options:
     #
     #  * SQL adapter
-    #    adapter :sql, 'sqlite://db/hanami_app_development.sqlite3'
-    #    adapter :sql, 'postgresql://localhost/hanami_app_development'
-    #    adapter :sql, 'mysql://localhost/hanami_app_development'
+    #    adapter :sql, 'sqlite://db/flashcard_genius_development.sqlite3'
+    #    adapter :sql, 'postgresql://localhost/flashcard_genius_development'
+    #    adapter :sql, 'mysql://localhost/flashcard_genius_development'
     #
     adapter :sql, ENV.fetch('DATABASE_URL')
 
@@ -28,7 +28,7 @@ Hanami.configure do
   end
 
   mailer do
-    root 'lib/hanami_app/mailers'
+    root 'lib/flashcard_genius/mailers'
 
     # See https://guides.hanamirb.org/mailers/delivery
     delivery :test

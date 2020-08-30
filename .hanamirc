@@ -1,3 +1,3 @@
-project=hanami_app
+project=flashcard_genius
 test=rspec
 template=erb
