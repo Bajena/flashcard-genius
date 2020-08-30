@@ -1,4 +1,60 @@
+// Responsive breakpoints
+$large-screen: 1200px !default;
+$medium-screen: 992px !default;
+$small-screen: 768px !default;
+$xsmall-screen: 480px !default;
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  background: black;
+  color: white;
+
+  .footer-author-info {
+    @media only screen and (max-width: $medium-screen) {
+      text-align: center;
+    }
+    @media only screen and (min-width: $medium-screen) {
+      text-align: left;
+    }
+
+    &-text {
+      &:hover {
+        .fa-heart {
+          color: #0071de;
+        }
+      }
+    }
+  }
+
+  .footer-social-icons {
+    @media only screen and (max-width: $medium-screen) {
+      text-align: center;
+    }
+    @media only screen and (min-width: $medium-screen) {
+      text-align: right;
+    }
+
+    a.footer-social-icon {
+      color: white;
+      background: none;
+
+      &:hover {
+        color: #0071de;
+      }
+    }
+  }
+}
+
 .main-content {
+  flex-grow: 1;
   margin-top: 66px;
 }
 
