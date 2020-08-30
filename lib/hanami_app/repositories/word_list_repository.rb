@@ -11,7 +11,7 @@ class WordListRepository < Hanami::Repository
     transaction do
       assoc(:words).where(word_list_id: id).delete
       WordRepository.new.create(data[:words].map { |w| w.merge(word_list_id: id) })
-      update(id, data.except(:words))
+      update(id, data.delete_if { |k, _| k == :words })
     end
   end
 

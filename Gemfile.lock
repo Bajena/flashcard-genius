@@ -240,5 +240,8 @@ DEPENDENCIES
   sassc
   shotgun
 
+RUBY VERSION
+   ruby 2.6.1p33
+
 BUNDLED WITH
    2.1.4

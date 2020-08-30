@@ -2,10 +2,10 @@ RSpec.describe Web::Controllers::WordLists::Update, type: :action do
   let(:action) { described_class.new }
   let(:response) { action.call(params) }
   let(:params) do
-    query_params.merge(
+    {
       'rack.session' => session,
       'router.params' => router_params
-    )
+    }
   end
   let(:router_params) do
     {
