@@ -1,4 +1,4 @@
-# Flashcards
+# Flashcard Genius
 
 An app for managing sets of language learning flashcards. Built using [Hanami](https://guides.hanamirb.org/) Ruby framework and [PaperCSS](https://www.getpapercss.com/) framework.
 
