@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col sm-12 md-6">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1519419166318-4f5c601b8e6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80">
+
+      <div class="card-body">
+        <h4 class="card-title">Flashcards? What sorcery is this?</h4>
+        <p class="card-text">
+          <p>
+            Flashcards is a card with information on both sides. Such cards are often used to memorize vocabulary, historical dates, formulas or any subject that can be learned via a question-and-answer format.
+          </p>
+
+          <p>
+            If you've ever made paper flashcards you know it's hard to manage a bunch of pieces of paper. With Flashcard Genius you can easily create, browse, print and share your card sets with others!
+          </p>
+        </p>
+
+        <%= link_to "+ Create a list", routes.new_word_list_path, class: "paper-btn" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col sm-12 md-6">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1563509769909-174be967b5df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2196&q=80">
+
+      <div class="card-body">
+        <h4 class="card-title">No registration needed!</h4>
+        <p class="card-text">
+          <p>
+            Flashcard Genius account will allow you to manage all your flashcard lists with ease. However, if you don't want to create an account you'll still be able to create lists anonymously. Such lists can then be shared with others or printed.
+          </p>
+
+          <p>The choice is yours!</p>
+
+          <%= link_to "Start building flashcards", routes.new_word_list_path, class: "paper-btn" %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

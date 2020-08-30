@@ -3,7 +3,7 @@
 #
 # Example:
 # get '/hello', to: ->(env) { [200, {}, ['Hello from Hanami!']] }
-root to: 'word_lists#index'
+root to: 'home#index'
 resources :word_lists, only: [:index, :new, :create, :show, :edit, :update]
 resources :users, only: [:new, :create]
 post '/login', to: 'sessions#create', as: 'login'
