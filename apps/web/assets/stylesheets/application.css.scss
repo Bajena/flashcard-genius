@@ -17,6 +17,19 @@ footer {
   background: black;
   color: white;
 
+  a, .footer-author-info-highlight-hover  {
+    color: white;
+    background: none;
+
+    &:visited {
+      color: white;
+    }
+
+    &:hover {
+      color: #0071de;
+    }
+  }
+
   .footer-author-info {
     @media only screen and (max-width: $medium-screen) {
       text-align: center;
@@ -25,12 +38,8 @@ footer {
       text-align: left;
     }
 
-    &-text {
-      &:hover {
-        .fa-heart {
-          color: #0071de;
-        }
-      }
+    a {
+      text-decoration: underline;
     }
   }
 
@@ -40,15 +49,6 @@ footer {
     }
     @media only screen and (min-width: $medium-screen) {
       text-align: right;
-    }
-
-    a.footer-social-icon {
-      color: white;
-      background: none;
-
-      &:hover {
-        color: #0071de;
-      }
     }
   }
 }
