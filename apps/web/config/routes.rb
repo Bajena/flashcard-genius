@@ -9,3 +9,4 @@ resources :users, only: [:new, :create]
 post '/login', to: 'sessions#create', as: 'login'
 delete '/sessions', to: 'sessions#destroy', as: 'logout'
 get '/login', to: 'sessions#new', as: 'login'
+get '/words/for_test', to: 'words#for_test'
