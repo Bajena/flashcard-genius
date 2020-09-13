@@ -2,12 +2,14 @@
 
 class WordTest < Hanami::Entity
   RESULT_FAILED = "failed"
-  RESULT_MEDIUM = "medium"
+  RESULT_UNSURE = "unsure"
   RESULT_SUCCESS = "success"
 
+  ALLOWED_RESULTS = [RESULT_FAILED, RESULT_UNSURE, RESULT_SUCCESS].freeze
+
   REPETITION_FREQUENCY = {
-    RESULT_FAILED => 0, # days
-    RESULT_MEDIUM => 1, # day
-    RESULT_SUCCESS => 4 # days
+    RESULT_FAILED => 15, # seconds
+    RESULT_UNSURE => 24 * 3600, # seconds
+    RESULT_SUCCESS => 4 * 24 * 3600 # seconds
   }
 end

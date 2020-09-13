@@ -8,6 +8,13 @@ module Web
 
     private
 
+    def check_login
+      return if current_user
+
+      flash[:error] = "Please log in first"
+      redirect_to routes.login_path
+    end
+
     def authenticated?
       !!current_user
     end
