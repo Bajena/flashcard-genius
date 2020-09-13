@@ -40,7 +40,9 @@
             class: "send-result-form",
             id: "result-form-success"
           ) do
-          submit "OK", class: "btn-success-outline margin-none", "popover-bottom": "Re-check in 4 days"
+            submit class: "btn-success-outline margin-none", "popover-bottom": "Re-check in 4 days" do
+              i class: "fas fa-check"
+            end
           end
         %>
         <%=
@@ -50,7 +52,9 @@
             class: "send-result-form",
             id: "result-form-unsure"
           ) do
-          submit "Unsure", class: "btn-warning-outline margin-none", "popover-bottom": "Re-check tomorrow"
+          submit class: "btn-warning-outline margin-none", "popover-bottom": "Skip till tomorrow" do
+            i class: "fas fa-forward"
+          end
         end %>
         <%=
           form_for(
@@ -59,7 +63,9 @@
             class: "send-result-form",
             id: "result-form-failed"
           ) do
-          submit "Don't know", class: "btn-danger-outline margin-none", "popover-bottom": "Re-check in a minute"
+          submit class: "btn-danger-outline margin-none", "popover-bottom": "Re-check in a minute" do
+            i class: "fas fa-retweet"
+          end
         end %>
       </div>
   </div>
