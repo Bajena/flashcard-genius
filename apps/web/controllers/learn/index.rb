@@ -1,6 +1,6 @@
 module Web
   module Controllers
-    module Memorize
+    module Learn
       class Index
         include Web::Action
         include Web::Authentication

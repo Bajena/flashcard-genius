@@ -1,6 +1,6 @@
-RSpec.describe Web::Views::Words::ForTest, type: :view do
+RSpec.describe Web::Views::Learn::FindWord, type: :view do
   let(:exposures) { Hash[format: :html] }
-  let(:template)  { Hanami::View::Template.new('apps/web/templates/words/for_test.html.erb') }
+  let(:template)  { Hanami::View::Template.new('apps/web/templates/learn/find_word.html.erb') }
   let(:view)      { described_class.new(template, exposures) }
   let(:rendered)  { view.render }
 

@@ -1,4 +1,4 @@
-RSpec.describe Web::Controllers::Memorize::FindWord, type: :action do
+RSpec.describe Web::Controllers::Learn::FindWord, type: :action do
   let(:action) { described_class.new }
   let(:params) { Hash[] }
 

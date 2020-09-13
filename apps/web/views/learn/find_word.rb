@@ -1,6 +1,6 @@
 module Web
   module Views
-    module Memorize
+    module Learn
       class FindWord
         include Web::View
         layout false

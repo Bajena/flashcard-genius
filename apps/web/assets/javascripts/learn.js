@@ -1,9 +1,9 @@
-(function memorize() {
-  if (!document.getElementById('memorize')) {
+(function learn() {
+  if (!document.getElementById('learn')) {
     return;
   }
 
-  var wordContainer = document.getElementById('memorize-word-container');
+  var wordContainer = document.getElementById('learn-word-container');
   var nextWordPath = wordContainer.dataset.loadPath;
   var sendResultPath = wordContainer.dataset.sendResultPath;
 
