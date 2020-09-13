@@ -15,6 +15,7 @@
         <li><%= link_to '+ New list', routes.new_word_list_path %></li>
 
         <% if current_user %>
+          <li><%= link_to 'Learn', routes.learn_path %></li>
           <li><%= link_to 'My lists', routes.word_lists_path %></li>
           <li>
             <%=

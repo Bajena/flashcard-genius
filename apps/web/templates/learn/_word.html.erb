@@ -1,0 +1,66 @@
+<% tab_name = "tabs_#{rand}" %>
+<% tab1_id = "#{tab_name}_tab1" %>
+<% tab2_id = "#{tab_name}_tab2" %>
+
+<div class="xs-12 sm-8 lg-6 col align-bottom flashcard-column">
+  <div class="card">
+    <% if last_test_at %>
+      <div class="card-header">
+        Previously checked at: <%= last_test_at %>
+      </div>
+    <% end %>
+    <div class="card-body">
+      <div class="row tabs">
+        <input id="<%= tab1_id %>" type="radio" name="<%= tab_name %>" checked>
+        <label for="<%= tab1_id %>">Question</label>
+
+        <input id="<%= tab2_id %>" type="radio" name="<%= tab_name %>">
+        <label for="<%= tab2_id %>">Answer</label>
+
+        <div id="<%= tab_name %>_content1" class="content">
+          <h4 class="card-title flashcard-title"><%= word.question %></h4>
+          <% if word.question_example %>
+            <p class="card-text flashcard-example"><%= word.question_example %></p>
+          <% end %>
+        </div>
+        <div id="<%= tab_name %>_content2" class="content">
+          <h4 class="card-title flashcard-title"><%= word.answer %></h4>
+          <% if word.answer_example %>
+            <p class="card-text flashcard-example"><%= word.answer_example %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="row margin-none padding-none">
+        <%=
+          form_for(
+            :word_test,
+            routes.word_tests_path(word_id: word.id, result: WordTest::RESULT_SUCCESS),
+            class: "send-result-form",
+            id: "result-form-success"
+          ) do
+          submit "OK", class: "btn-success-outline margin-none", "popover-bottom": "Re-check in 4 days"
+          end
+        %>
+        <%=
+          form_for(
+            :word_test,
+            routes.word_tests_path(word_id: word.id, result: WordTest::RESULT_UNSURE),
+            class: "send-result-form",
+            id: "result-form-unsure"
+          ) do
+          submit "Unsure", class: "btn-warning-outline margin-none", "popover-bottom": "Re-check tomorrow"
+        end %>
+        <%=
+          form_for(
+            :word_test,
+            routes.word_tests_path(word_id: word.id, result: WordTest::RESULT_FAILED),
+            class: "send-result-form",
+            id: "result-form-failed"
+          ) do
+          submit "Don't know", class: "btn-danger-outline margin-none", "popover-bottom": "Re-check in a minute"
+        end %>
+      </div>
+  </div>
+</div>

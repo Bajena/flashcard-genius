@@ -1,0 +1,6 @@
+<% if word %>
+  <%= render partial: "word", locals: { word: word, last_test_at: last_test_at } %>
+<% else %>
+  You're all set for now!
+<% end %>
+

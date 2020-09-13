@@ -5,6 +5,7 @@
       <th>Name</th>
       <th>Words</th>
       <th>Created At</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -14,10 +15,11 @@
           <td><%= i + 1 %></td>
           <td><%= w[:name] %></td>
           <td><%= w[:word_count] %></td>
-          <td><%= w[:created_at] %></td>
+          <td><%= w[:created_at].to_date %></td>
           <td>
-            <%= link_to "Browse", routes.word_list_path(w[:id]), class: "paper-btn" %>
-            <%= link_to "Edit", routes.edit_word_list_path(w[:id]), class: "paper-btn" %>
+            <%= link_to "Learn", routes.learn_word_list_path(w[:id]) %>
+            <%= link_to "Browse", routes.word_list_path(w[:id]) %>
+            <%= link_to "Edit", routes.edit_word_list_path(w[:id]) %>
           </td>
         </tr>
       <% end %>

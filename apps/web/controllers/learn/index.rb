@@ -1,15 +1,16 @@
 module Web
   module Controllers
-    module Home
+    module Learn
       class Index
         include Web::Action
         include Web::Authentication
 
-        before do
-          redirect_to routes.word_lists_path if current_user
-        end
+        before :check_login
+
+        expose :word_list_id
 
         def call(params)
+          @word_list_id = params[:word_list_id]
         end
       end
     end
