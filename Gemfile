@@ -9,6 +9,7 @@ gem 'sassc'
 gem 'pg'
 gem 'bcrypt'
 gem 'honeybadger', '~> 4.0'
+gem "hanami-ujs"
 
 group :development do
   # Code reloading

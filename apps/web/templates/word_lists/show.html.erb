@@ -8,12 +8,19 @@
 
     <% if word_list.editable_by?(current_user) %>
       <%= link_to 'Edit list', routes.edit_word_list_path(word_list.id), class: 'paper-btn btn-secondary' %>
+      <button id="add-word-button">Add a word</button>
     <% end %>
   </div>
 </div>
 
-<div class="row">
+<% if word_list.editable_by?(current_user) %>
+  <%= render partial: "words/form", locals: { word_list: word_list } %>
+<% end %>
+
+<div class="row" id="words-listing">
   <% word_list.words.each do |word| %>
     <%= render partial: "shared/flashcard", locals: { word: word } %>
   <% end %>
 </div>
+
+<%= javascript 'quick_add_word' %>

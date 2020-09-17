@@ -110,6 +110,7 @@ GEM
       hanami-utils (~> 1.3)
       http_router (= 0.11.2)
       rack (~> 2.0)
+    hanami-ujs (0.1.0)
     hanami-utils (1.3.6)
       concurrent-ruby (~> 1.0)
       transproc (~> 1.0)
@@ -226,6 +227,7 @@ DEPENDENCIES
   factory_bot
   hanami (~> 1.3)
   hanami-model (~> 1.3)
+  hanami-ujs
   hanami-webconsole
   honeybadger (~> 4.0)
   pg
