@@ -1,10 +1,10 @@
 <table class="table-hover">
   <thead>
     <tr>
-      <th>#</th>
       <th>Name</th>
       <th>Words</th>
       <th>Created At</th>
+      <th>Last Modified At</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -12,10 +12,10 @@
     <% if word_lists.any? %>
       <% word_lists.each.with_index do |w, i| %>
         <tr>
-          <td><%= i + 1 %></td>
           <td><%= w[:name] %></td>
           <td><%= w[:word_count] %></td>
           <td><%= w[:created_at].to_date %></td>
+          <td><%= w[:updated_at].to_date %></td>
           <td>
             <%= link_to "Learn", routes.learn_word_list_path(w[:id]) %>
             <%= link_to "Browse", routes.word_list_path(w[:id]) %>
