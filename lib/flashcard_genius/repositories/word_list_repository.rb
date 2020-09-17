@@ -24,10 +24,12 @@ class WordListRepository < Hanami::Repository
       :id,
       :name,
       :created_at,
+      :updated_at,
       words[:id].func { int::count(id).as(:word_count) }
     ).
       left_join(:words).
       group(:id).
+      order(Sequel.desc(:updated_at)).
       map.
       to_a
   end
