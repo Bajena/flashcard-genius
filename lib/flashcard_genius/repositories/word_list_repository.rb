@@ -24,12 +24,12 @@ class WordListRepository < Hanami::Repository
       :id,
       :name,
       :created_at,
-      :updated_at,
-      words[:id].func { int::count(id).as(:word_count) }
+      words[:id].func { int::count(id).as(:word_count) },
+      words[:created_at].func { int::max(created_at).as(:last_word_created_at) }
     ).
       left_join(:words).
       group(:id).
-      order(Sequel.desc(:updated_at)).
+      order(Sequel.desc(:last_word_created_at)).
       map.
       to_a
   end
