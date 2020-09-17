@@ -1,0 +1,14 @@
+<% if params.valid? %>
+  <%= render partial: "shared/flashcard", locals: { word: word } %>
+<% else %>
+  <div class="row form-errors padding-none margin-none">
+    <div class="col sm-12 padding-none margin-none">
+      <p>There was a problem with your submission:</p>
+      <ul>
+        <% params.error_messages.each do |message| %>
+          <li class="form-error"><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

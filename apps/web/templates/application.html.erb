@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <%= csrf_meta_tags %>
   <link rel="stylesheet" href="https://unpkg.com/papercss@1.7.0/dist/paper.min.css">
 
   <script src="https://kit.fontawesome.com/9b8361519a.js" crossorigin="anonymous"></script>
@@ -28,5 +29,6 @@
   <%= render partial: "shared/footer" %>
 
   <%= javascript 'application' %>
+  <%= javascript "hanami-ujs" %>
 </body>
 </html>
