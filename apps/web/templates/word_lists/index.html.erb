@@ -15,7 +15,7 @@
           <td><%= w[:name] %></td>
           <td><%= w[:word_count] %></td>
           <td><%= w[:created_at].to_date %></td>
-          <td><%= w[:last_word_created_at].to_date %></td>
+          <td><%= w[:last_word_created_at]&.to_date || "-" %></td>
           <td>
             <%= link_to "Learn", routes.learn_word_list_path(w[:id]) %>
             <%= link_to "Browse", routes.word_list_path(w[:id]) %>

@@ -1,6 +1,6 @@
-<div class="row flashcard-title-row">
+<div class="row margin-bottom-none" id="word-list-show">
   <div class="col sm-12">
-    <h4 class="flashcard-title">
+    <h4 class="margin-top-none">
       <strong>List:</strong>
       <%= word_list.name %>
       <span class="badge secondary"><%= word_list.words.length %> card(s)</span>
@@ -19,8 +19,9 @@
 
 <div class="row" id="words-listing">
   <% word_list.words.each do |word| %>
-    <%= render partial: "shared/flashcard", locals: { word: word } %>
+    <%= render partial: "shared/flashcard", locals: { word: word, editable: word_list.editable_by?(current_user) } %>
   <% end %>
 </div>
 
 <%= javascript 'quick_add_word' %>
+<%= javascript 'delete_word' %>

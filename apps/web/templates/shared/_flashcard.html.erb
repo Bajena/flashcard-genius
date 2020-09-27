@@ -26,5 +26,27 @@
         </div>
       </div>
     </div>
+
+    <% if editable %>
+      <div class="card-footer">
+        <div class="row margin-none padding-none">
+          <%=
+            form_for(
+              :word_test,
+              routes.word_path(word.id),
+              remote: true,
+              method: :delete,
+              class: "delete-word-form",
+              "data-method": "DELETE"
+            ) do
+              submit(
+                class: "btn-danger margin-none fas fa-trash-alt",
+                "data-disable-with": ""
+              )
+            end
+          %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
