@@ -6,6 +6,7 @@ module Web
         include Web::Authentication
 
         expose :word
+        expose :word_list
 
         before :check_list_presence
         before :check_list_access

@@ -53,10 +53,9 @@
       showErrors('Unknown error occured');
     }
 
-    document.querySelectorAll('[data-disable-with]').forEach(function(btn) {
-      btn.disabled = false;
-      btn.innerText = btn.dataset.originalText;
-    });
+    var submitButton = document.querySelector('#submit-word-button');
+    submitButton.disabled = false;
+    submitButton.innerText = submitButton.dataset.originalText;
   };
 
   quickAddWordForm.addEventListener("ajax:before", ajaxBeforeHandler);
