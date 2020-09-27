@@ -8,6 +8,7 @@ module Web
         before :check_login
 
         expose :word
+        expose :word_list
         expose :last_test_at
 
         def call(params)
@@ -17,6 +18,7 @@ module Web
           )
 
           @word = result[:word]
+          @word_list = WordListRepository.new.find(@word.word_list_id) if @word
           @last_test_at = result[:last_test_at]
         end
       end

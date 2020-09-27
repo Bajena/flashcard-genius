@@ -4,11 +4,12 @@
 
 <div class="xs-12 sm-8 lg-6 col align-bottom flashcard-column">
   <div class="card">
-    <% if last_test_at %>
-      <div class="card-header">
+    <div class="card-header">
+      List: <%= link_to word_list.name, routes.word_list_path(word_list.id) %><br/>
+      <% if last_test_at %>
         Previously checked at: <%= last_test_at %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
     <div class="card-body">
       <div class="row tabs">
         <input id="<%= tab1_id %>" type="radio" name="<%= tab_name %>" checked>
