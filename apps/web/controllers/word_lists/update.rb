@@ -19,7 +19,7 @@ module Web
           halt 404 if !wl.anonymous? && wl.user_id != current_user&.id
 
           if params.valid?
-            WordListRepository.new.update_with_words(id, params[:word_list])
+            WordListRepository.new.update(id, params[:word_list])
 
             redirect_to routes.word_list_path(id)
           else
