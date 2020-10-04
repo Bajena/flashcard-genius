@@ -1,13 +1,26 @@
 <div class="row margin-bottom-none" id="word-list-show">
-  <div class="col sm-12">
-    <h4 class="margin-top-none">
+  <div class="col sm-12 margin-top-none">
+    <h4 class="margin-none">
       <strong>List:</strong>
       <%= word_list.name %>
-      <span class="badge secondary"><%= word_list.words.length %> card(s)</span>
+
+      <% if word_list.editable_by?(current_user) %>
+        <%=
+          link_to(
+            "",
+            routes.edit_word_list_path(word_list.id),
+            class: 'paper-btn btn-secondary-outline btn-small fa fa-edit'
+          )
+        %>
+      <% end %>
+    </h4>
+
+    <h4 class="margin-top-none">
+      <strong>Words:</strong>
+      <span class="badge secondary" id="word-count"><%= word_list.words.length %></span>
     </h4>
 
     <% if word_list.editable_by?(current_user) %>
-      <%= link_to 'Edit list', routes.edit_word_list_path(word_list.id), class: 'paper-btn btn-secondary' %>
       <button id="add-word-button">Add a word</button>
     <% end %>
   </div>

@@ -3,7 +3,6 @@ module Web
     module WordLists
       class Edit
         include Web::View
-        include WithWordListForm
       end
     end
   end

@@ -1,3 +1,15 @@
+<h3 class="margin-none">Create a list</h3>
+
+<% if current_user %>
+  <p>
+    The list will be available for viewing/editing to anyone with a link. If you'd like to create a private list you'll have to <%= link_to "sign up", routes.new_user_path %>.
+  </p>
+<% else %>
+  <p>
+    The list will be available for viewing anyone with a link, but you'll be the only person with privilege to edit the list.
+  </p>
+<% end %>
+
 <%= render partial: "word_lists/form", locals: {
     word_list: word_list,
     submit_path: routes.word_lists_path,
