@@ -9,10 +9,7 @@ module Web
 
         def call(params)
           @word_list = WordList.new(
-            name: "New list",
-            words: [
-              Word.new
-            ]
+            name: "New list"
           )
         end
       end
