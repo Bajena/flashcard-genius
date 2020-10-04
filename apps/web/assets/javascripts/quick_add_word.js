@@ -47,6 +47,7 @@
     if (status >= 200 && status < 300) {
       document.getElementById('words-listing').insertAdjacentHTML('beforeend', event.detail.response);
       quickAddWordForm.reset();
+      alertify.success("Word added");
     } else if (status == 422) {
       showErrors(event.detail.response);
     } else {
