@@ -19,7 +19,15 @@
           <td>
             <%= link_to "Learn", routes.learn_word_list_path(w[:id]) %>
             <%= link_to "Browse", routes.word_list_path(w[:id]) %>
-            <%= link_to "Edit", routes.edit_word_list_path(w[:id]) %>
+            <%=
+              link_to(
+                "Delete",
+                routes.word_list_path(w[:id]),
+                "data-method": "DELETE",
+                "data-confirm": "Are you sure you want to delete this list?",
+                "data-disable-with": ""
+              )
+            %>
           </td>
         </tr>
       <% end %>

@@ -3,6 +3,14 @@ class WordListRepository < Hanami::Repository
     has_many :words
   end
 
+  def delete_with_words(id)
+    transaction do
+      assoc(:words).where(word_list_id: id).delete
+
+      delete(id)
+    end
+  end
+
   def find_with_words(id)
     aggregate(:words).where(id: id).map_to(WordList).one
   end
