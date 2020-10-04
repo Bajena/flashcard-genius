@@ -22,30 +22,37 @@
 
   var addButton = document.getElementById('add-word-button');
   var quickAddWordWrapper = document.getElementById('quick-add-word-wrapper');
-  hide(quickAddWordWrapper);
+  var errorsContainer = document.getElementById('quick-add-word-form-errors');
+  var wordCountSpan = document.getElementById('word-count');
 
-  addButton.onclick = function() {
-    if (isVisible(quickAddWordWrapper)) {
-      hide(quickAddWordWrapper);
-      addButton.innerText = "Add a word";
-    } else {
+  var toggleForm = function(state) {
+    if (state) {
       show(quickAddWordWrapper);
       addButton.innerText = "Hide new word form";
+    } else {
+      hide(quickAddWordWrapper);
+      addButton.innerText = "+ Add a word";
     }
   }
-
-  var errorsContainer = document.getElementById('quick-add-word-form-errors');
-  hide(errorsContainer);
 
   var ajaxBeforeHandler = function(event) {
     errorsContainer.innerHTML = "";
     hide(errorsContainer);
   };
 
+  var getCurrentWordCount = function() {
+    return Number(wordCountSpan.innerText);
+  }
+
+  var incrementWordCount = function() {
+    wordCountSpan.innerText = getCurrentWordCount() + 1;
+  }
+
   var ajaxCompleteHandler = function(event) {
     var status = event.detail.status;
     if (status >= 200 && status < 300) {
       document.getElementById('words-listing').insertAdjacentHTML('beforeend', event.detail.response);
+      incrementWordCount();
       quickAddWordForm.reset();
       alertify.success("Word added");
     } else if (status == 422) {
@@ -61,4 +68,11 @@
 
   quickAddWordForm.addEventListener("ajax:before", ajaxBeforeHandler);
   quickAddWordForm.addEventListener("ajax:complete", ajaxCompleteHandler);
+
+  hide(errorsContainer);
+  toggleForm(getCurrentWordCount() === 0);
+
+  addButton.onclick = function() {
+    toggleForm(!isVisible(quickAddWordWrapper));
+  }
 })();
