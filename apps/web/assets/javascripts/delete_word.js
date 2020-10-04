@@ -2,17 +2,18 @@
   if (!document.getElementById('word-list-show')) { return; }
 
   var ajaxCompleteHandler = function(event) {
-    var btn = event.target;
-    if (!btn.className.includes("delete-word-form")) {
+    var form = event.target;
+    if (!form.className.includes("delete-word-form")) {
       return;
     }
 
     var status = event.detail.status;
 
     if (status >= 200 && status < 300) {
-      btn.closest(".flashcard-column").remove();
+      form.closest(".flashcard-column").remove();
     } else {
-      console.error("Failed to delete word");
+      alertify.error("Deleting word failed");
+      form.getElementsByTagName("button")[0].disabled = false;
     }
   };
 

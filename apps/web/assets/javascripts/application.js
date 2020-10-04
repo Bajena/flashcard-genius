@@ -1,3 +1,3 @@
 (function() {
-  // General helper functions
+   alertify.set('notifier','position', 'top-right');
 })();

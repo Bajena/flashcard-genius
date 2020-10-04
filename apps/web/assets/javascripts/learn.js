@@ -12,9 +12,15 @@
       method: form.method,
       body: new FormData(form)
     })
-    .then(function() { loadNextWord(); })
+    .then(function(response) {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+
+      loadNextWord();
+    })
     .catch(function(err) {
-      console.log('Failed to send result: ', err);
+      alertify.error("Sending result failed");
     });
   }
 
