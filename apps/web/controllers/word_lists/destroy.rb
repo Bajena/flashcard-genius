@@ -9,7 +9,7 @@ module Web
         before :check_list_access
 
         def call(params)
-          WordListRepository.new.delete_with_words(word_list.id)
+          WordListRepository.new.delete(word_list.id)
 
           flash[:success] = "List removed"
           redirect_to routes.root_path
