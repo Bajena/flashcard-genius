@@ -98,6 +98,15 @@ footer {
   margin-right: 10px;
 }
 
+#delete-list-button {
+  display: inline;
+}
+
+#add-word-button {
+  position: relative;
+  top: -4px;
+}
+
 .alertify-notifier.ajs-top {
   top: 70px;
 }
