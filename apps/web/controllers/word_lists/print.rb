@@ -38,10 +38,23 @@ module Web
         def document
           return @document if defined?(@document)
 
+
           pdf = Prawn::Document.new
-          pdf.text("Hello World!")
+          draw_card(pdf, 0, 0)
+          draw_card(pdf, 300, 0)
 
           @document = pdf.render
+        end
+
+        def draw_card(pdf, x, y)
+          top = pdf.bounds.height
+          card_height = 220
+          card_width = 250
+
+          pdf.bounding_box([x, top - y], width: card_width, height: card_height) do
+           pdf.text 'This text is flowing from the left. '
+           pdf.stroke_bounds
+          end
         end
       end
     end
