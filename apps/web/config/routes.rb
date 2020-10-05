@@ -4,7 +4,11 @@
 # Example:
 # get '/hello', to: ->(env) { [200, {}, ['Hello from Hanami!']] }
 root to: 'home#index'
-resources :word_lists
+resources :word_lists do
+  member do
+    get 'print'
+  end
+end
 resources :words, only: [:create, :destroy]
 resources :word_tests, only: [:create]
 

@@ -141,7 +141,11 @@ GEM
     minitest (5.14.1)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
+    pdf-core (0.8.1)
     pg (1.2.3)
+    prawn (2.3.0)
+      pdf-core (~> 0.8.1)
+      ttfunk (~> 1.6)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -208,6 +212,7 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.10)
     transproc (1.1.1)
+    ttfunk (1.6.2.1)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
     url_mount (0.2.1)
@@ -231,6 +236,7 @@ DEPENDENCIES
   hanami-webconsole
   honeybadger (~> 4.0)
   pg
+  prawn
   pry-nav
   pry-rescue
   pry-stack_explorer

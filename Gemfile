@@ -10,6 +10,7 @@ gem 'pg'
 gem 'bcrypt'
 gem 'honeybadger', '~> 4.0'
 gem "hanami-ujs"
+gem "prawn"
 
 group :development do
   # Code reloading
