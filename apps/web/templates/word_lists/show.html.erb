@@ -16,6 +16,15 @@
           <%=
             link_to(
               "",
+              routes.learn_path(word_list_id: word_list.id),
+              class: "paper-btn btn-success-outline btn-small margin-none fas fa-brain",
+              title: "Learn this list"
+            )
+          %>
+
+          <%=
+            link_to(
+              "",
               routes.edit_word_list_path(word_list.id),
               class: 'paper-btn btn-primary-outline btn-small fa fa-edit',
               title: "Edit list"
