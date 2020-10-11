@@ -148,7 +148,7 @@ module Web
           y = CARD_PADDING + 6
 
           pdf.text_box(
-            "Printed using FlashcardGenius",
+            "Printed using Flashcard Genius",
             at: [CARD_PADDING, y],
             single_line: true,
             size: 6,
