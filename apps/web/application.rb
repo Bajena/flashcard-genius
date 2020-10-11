@@ -74,7 +74,7 @@ module Web
       #
       # cookies true
       # or
-      # cookies max_age: 300
+      cookies secure: true
 
       # Enable sessions
       # Argument: Symbol the Rack session adapter
