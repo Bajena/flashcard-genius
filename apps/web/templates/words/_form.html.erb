@@ -6,7 +6,7 @@
       <div class="card-body">
         <h4>New word:</h4>
         <%=
-          form_for :word, routes.words_path, id: "quick-add-word-form", remote: true do
+          form_for :word, routes.words_path, id: "quick-add-word-form", remote: true, autocomplete: "off" do
             hidden_field :word_list_id, value: word_list.id
             div class: "row margin-bottom-none" do
               div class: "col md-3" do
