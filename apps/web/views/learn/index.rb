@@ -4,6 +4,10 @@ module Web
       class Index
         include Web::View
 
+        def page_title
+          "Flashcard Genius - Learn"
+        end
+
         def next_word_path
           return routes.learn_find_word_path unless word_list_id
 
