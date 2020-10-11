@@ -58,7 +58,7 @@ module Web
             page = (i / cards_per_page).ceil * 2 + 1 # Pages are numbered from 1
             page_i = i % cards_per_page
             row = page_i / COLUMNS
-            col = page_i % COLUMNS
+            col = COLUMNS - page_i % COLUMNS - 1
 
             draw_card(pdf, page, col, row, w.question, w.question_example, :question)
             draw_card(pdf, page + 1, col, row, w.answer, w.answer_example, :answer)
