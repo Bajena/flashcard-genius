@@ -234,7 +234,8 @@ module Web
         plugin-types application/pdf;
         child-src 'self';
         frame-src 'self';
-        media-src 'self'
+        media-src 'self';
+        manifest-src 'self'
       }
 
       ##
