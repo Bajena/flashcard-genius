@@ -2,6 +2,16 @@
   <div class="col sm-12 margin-top-none">
     <div class="row">
       <h4 class="margin-none">
+        <%=
+          link_to(
+            "",
+            routes.print_word_list_path(word_list.id),
+            class: 'paper-btn btn-secondary-outline btn-small fas fa-print',
+            title: "Print this list",
+            target: "_blank"
+          )
+        %>
+
         <% if word_list.editable_by?(current_user) %>
           <%=
             link_to(
@@ -9,16 +19,6 @@
               routes.edit_word_list_path(word_list.id),
               class: 'paper-btn btn-primary-outline btn-small fa fa-edit',
               title: "Edit list"
-            )
-          %>
-
-          <%=
-            link_to(
-              "",
-              routes.print_word_list_path(word_list.id),
-              class: 'paper-btn btn-secondary-outline btn-small fas fa-print',
-              title: "Print this list",
-              target: "_blank"
             )
           %>
 
