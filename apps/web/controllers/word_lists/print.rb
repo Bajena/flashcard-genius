@@ -86,6 +86,7 @@ module Web
             print_list_name(pdf)
             print_main_text(pdf, text, type)
             print_help_text(pdf, help_text)
+            print_footer(pdf)
             pdf.stroke_bounds
           end
         end
@@ -138,8 +139,22 @@ module Web
             size: 12,
             align: :center,
             height: top - CARD_PADDING,
-            width: pdf.bounds.width - 2 * CARD_PADDING,
+            width: pdf.bounds.width - 2 * CARD_PADDING - 10,
             valign: :center
+          )
+        end
+
+        def print_footer(pdf)
+          y = CARD_PADDING + 6
+
+          pdf.text_box(
+            "Printed using FlashcardGenius",
+            at: [CARD_PADDING, y],
+            single_line: true,
+            size: 6,
+            overflow: :shrink_to_fit,
+            width: pdf.bounds.width - 2 * CARD_PADDING,
+            align: :right
           )
         end
       end
