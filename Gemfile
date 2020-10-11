@@ -11,6 +11,7 @@ gem 'bcrypt'
 gem 'honeybadger', '~> 4.0'
 gem "hanami-ujs"
 gem "prawn"
+gem 'rack-ssl-enforcer'
 
 group :development do
   # Code reloading

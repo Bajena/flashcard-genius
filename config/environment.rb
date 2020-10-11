@@ -46,7 +46,6 @@ Hanami.configure do
       delivery :smtp, address: ENV.fetch('SMTP_HOST'), port: ENV.fetch('SMTP_PORT')
     end
 
-    force_ssl true
     scheme "https"
     host "flashcard-genius.com"
   end
