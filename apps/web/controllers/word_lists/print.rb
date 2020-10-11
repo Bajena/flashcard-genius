@@ -6,7 +6,7 @@ module Web
         include Web::Authentication
 
         COLUMNS = 2
-        ROWS = 3
+        ROWS = 4
         CARD_PADDING = 8
 
         expose :word_list
