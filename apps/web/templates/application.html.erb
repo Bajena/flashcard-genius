@@ -57,5 +57,13 @@
 
   <%= javascript 'application' %>
   <%= javascript "hanami-ujs" %>
+
+  <script src="https://getinsights.io/js/insights.js"></script>
+  <% if Hanami.env == "production" %>
+    <script>
+      insights.init('KGAfbmuozxO3NzhJ');
+      insights.trackPages();
+    </script>
+  <% end %>
 </body>
 </html>

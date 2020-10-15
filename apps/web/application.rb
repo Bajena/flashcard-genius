@@ -227,7 +227,7 @@ module Web
         base-uri 'self';
         default-src 'none';
         script-src 'self' 'unsafe-inline' https:;
-        connect-src 'self';
+        connect-src 'self' https://getinsights.io;
         img-src 'self' https: data:;
         style-src 'self' 'unsafe-inline' https:;
         font-src 'self' 'unsafe-inline' https:;
