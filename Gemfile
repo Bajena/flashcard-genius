@@ -8,10 +8,10 @@ gem 'hanami-model', '~> 1.3'
 gem 'sassc'
 gem 'pg'
 gem 'bcrypt'
-gem 'honeybadger', '~> 4.0'
 gem "hanami-ujs"
 gem "prawn"
 gem 'rack-ssl-enforcer'
+gem "sentry-raven"
 
 group :development do
   # Code reloading
