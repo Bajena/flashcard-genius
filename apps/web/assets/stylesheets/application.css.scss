@@ -13,6 +13,33 @@ body {
   flex-direction: column;
 }
 
+nav {
+  .nav-brand-wrapper {
+    margin-bottom: none;
+
+    .nav-root-link {
+      position: relative;
+      top: 2px;
+      left: -2px;
+      border-bottom: none;
+
+      &:hover {
+        border-bottom: 5px solid #c1c0bd;
+      }
+
+      .nav-logo {
+        position: relative;
+        top: 4px;
+      }
+
+      .nav-brand-name {
+        position: relative;
+        top: -10px;
+      }
+    }
+  }
+}
+
 footer {
   background: black;
   color: white;
