@@ -1,10 +1,18 @@
 class WordListRepository < Hanami::Repository
+  include InvalidUuidHandling
+
   associations do
     has_many :words
   end
 
+  def find(*args)
+    with_invalid_uuid_handling { super }
+  end
+
   def find_with_words(id)
-    aggregate(:words).where(id: id).map_to(WordList).one
+    with_invalid_uuid_handling do
+      aggregate(:words).where(id: id).map_to(WordList).one
+    end
   end
 
   def listing(user_id:)
