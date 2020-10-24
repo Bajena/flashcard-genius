@@ -13,6 +13,10 @@ body {
   flex-direction: column;
 }
 
+.hidden {
+  display: none;
+}
+
 nav {
   .nav-brand-wrapper {
     margin-bottom: none;

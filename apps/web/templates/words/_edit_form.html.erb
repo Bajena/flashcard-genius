@@ -1,0 +1,42 @@
+<%=
+  form_for(:word, routes.word_path(word.id), method: :patch, remote: true, autocomplete: "off", "data-method": :patch, class: "hidden edit-word-form") do
+    div class: "card-body" do
+      div class: "row margin-bottom-none" do
+        div class: "col xs-12" do
+          div class: "form-group" do
+            label      :question
+            text_field :question, class: "input-block", required: true, value: word.question
+          end
+        end
+
+        div class: "col xs-12" do
+          div class: "form-group" do
+            label      :question_example
+            text_field :question_example, class: "input-block", value: word.question_example
+          end
+        end
+
+        div class: "col xs-12" do
+          div class: "form-group" do
+            label      :answer
+            text_field :answer, class: "input-block", required: true, value: word.answer
+          end
+        end
+
+        div class: "col xs-12" do
+          div class: "form-group" do
+            label      :answer_example
+            text_field :answer_example, class: "input-block", value: word.answer_example
+          end
+        end
+      end
+    end
+
+    div class: "card-footer" do
+      div class: "row margin-none padding-none flex-edges" do
+        span("Cancel", class: "paper-btn btn-small btn-primary-outline cancel-edit-button margin-none")
+        submit("Save", class: "btn-secondary-outline btn-small edit-save-button margin-none", "data-disable-with": "Saving...")
+      end
+    end
+  end
+%>
