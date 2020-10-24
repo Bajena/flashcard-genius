@@ -77,6 +77,10 @@ footer {
     @media only screen and (min-width: $medium-screen) {
       text-align: right;
     }
+
+    a {
+      text-decoration: underline;
+    }
   }
 }
 

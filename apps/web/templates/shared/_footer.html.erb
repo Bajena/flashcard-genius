@@ -8,12 +8,10 @@
     </div>
 
     <div class="col x-sm-12 sm-12 md-6 footer-social-icons">
-      Find me at:
-      <a class="footer-social-icon" href="https://mycodeworksiknowwhy.wordpress.com/"><i class="fab fa-wordpress-simple"></i></a>
-      <a class="footer-social-icon" href="https://github.com/Bajena"><i class="fab fa-github"></i></a>
-      <a class="footer-social-icon" href="https://dev.to/bajena"><i class="fab fa-dev"></i></a>
-      <a class="footer-social-icon" href="https://www.linkedin.com/in/jan-bajena"><i class="fab fa-linkedin"></i></a>
-      <a class="footer-social-icon" href="https://medium.com/@bajena3"><i class="fab fa-medium"></i></a>
+      <%= link_to 'Support the project', routes.donate_path, class: "footer-social-icon" %>
+      on <a class="footer-social-icon" href="https://www.paypal.com/donate?hosted_button_id=XHYVMQUG97P7S" title="Support on PayPal"><i class="fab fa-paypal"></i></a>
+      or <a class="footer-social-icon" href="https://github.com/Bajena/flashcard-genius" title="Support on GitHub"><i class="fab fa-github"></i></a>
+      !
     </div>
   </div>
 </footer>
