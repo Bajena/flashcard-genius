@@ -9,7 +9,7 @@ resources :word_lists do
     get 'print'
   end
 end
-resources :words, only: [:create, :destroy]
+resources :words, only: [:create, :destroy, :update]
 resources :word_tests, only: [:create]
 
 resources :users, only: [:new, :create]
