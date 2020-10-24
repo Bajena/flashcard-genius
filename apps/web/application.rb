@@ -222,7 +222,7 @@ module Web
       #  * https://developer.mozilla.org/en-US/docs/Web/Security/CSP/CSP_policy_directives
       #
       security.content_security_policy %{
-        form-action 'self';
+        form-action 'self' https://www.paypal.com/donate;
         frame-ancestors 'self';
         base-uri 'self';
         default-src 'none';

@@ -77,6 +77,10 @@ footer {
     @media only screen and (min-width: $medium-screen) {
       text-align: right;
     }
+
+    a {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -131,4 +135,12 @@ footer {
 
 .alertify-notifier.ajs-top {
   top: 70px;
+}
+
+.donate-form {
+  .donate-image {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
 }
