@@ -25,6 +25,10 @@
       alertify.success("Word updated");
       var card = form.closest(".flashcard-column");
       card.outerHTML = event.detail.response;
+
+      // The old node got completely replaced. We need to find it again.
+      var newCard = document.querySelector("[data-word-id='" + card.dataset.wordId + "']");
+      newCard.scrollIntoView();
     } else {
       alertify.error("Update failed");
       var saveButton = form.getElementsByClassName("edit-save-button")[0];

@@ -2,7 +2,7 @@
 <% tab1_id = "#{tab_name}_tab1" %>
 <% tab2_id = "#{tab_name}_tab2" %>
 
-<div class="xs-12 sm-6 md-4 lg-3 col align-top flashcard-column">
+<div class="xs-12 sm-6 md-4 lg-3 col align-top flashcard-column" data-word-id="<%= word.id %>">
   <div class="card">
     <%= render partial: "words/edit_form", locals: { word: word } %>
 
