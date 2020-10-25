@@ -5,7 +5,7 @@ module Web
         include Web::View
 
         def page_title
-          "Flashcard Genius | Sign up"
+          "Sign up | Flashcard Genius"
         end
       end
     end

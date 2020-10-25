@@ -5,7 +5,7 @@ module Web
         include Web::View
 
         def page_title
-          "Flashcard Genius | Learn"
+          "Learn | Flashcard Genius"
         end
 
         def next_word_path
