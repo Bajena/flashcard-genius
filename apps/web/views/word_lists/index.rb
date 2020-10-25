@@ -5,7 +5,7 @@ module Web
         include Web::View
 
         def page_title
-          "Flashcard Genius - My lists"
+          "Flashcard Genius | My lists"
         end
       end
     end

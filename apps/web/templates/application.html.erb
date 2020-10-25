@@ -24,8 +24,6 @@
   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
 
-  <%= csrf_meta_tags %>
-
   <link rel="stylesheet" href="https://unpkg.com/papercss@1.7.0/dist/paper.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
 
@@ -36,9 +34,27 @@
   <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
 
-  <%= stylesheet "application" %>
-
+  <!-- Primary Meta Tags -->
   <title><%= page_title %></title>
+  <meta name="title" content="<%= page_title %>">
+  <meta name="description" content="<%= page_description %>">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://flashcard-genius.com/">
+  <meta property="og:title" content="<%= page_title %>">
+  <meta property="og:description" content="<%= page_description %>">
+  <meta property="og:image" content="https://flashcard-genius.com/social-background.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://flashcard-genius.com/">
+  <meta property="twitter:title" content="<%= page_title %>">
+  <meta property="twitter:description" content="<%= page_description %>">
+  <meta property="twitter:image" content="https://flashcard-genius.com/social-background.jpg">
+
+  <%= csrf_meta_tags %>
+  <%= stylesheet "application" %>
 </head>
 <body>
   <%= render partial: "shared/navbar" %>
