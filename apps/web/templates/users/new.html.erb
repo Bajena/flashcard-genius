@@ -1,3 +1,9 @@
+<script>
+ function onSignupSubmit(token) {
+   document.getElementById("signup-form").submit();
+ }
+</script>
+
 <div class="row container container-sm paper">
   <div class="col sm-12">
     <div class="row flex-spaces">
@@ -20,7 +26,7 @@
     <% end %>
 
     <%=
-      form_for :user, routes.users_path do
+      form_for :user, routes.users_path, id: "signup-form" do
 
         div class: "row flex-spaces" do
           div class: "col lg-6 md-8 sm-12" do
@@ -42,7 +48,7 @@
 
         div class: "row flex-spaces" do
           div class: "col" do
-            submit "Signup"
+            button "Signup", class: "g-recaptcha", "data-sitekey": "6LeZndsZAAAAAOMjIZH76TejNH4RHynugqhahXTx", "data-callback": "onSignupSubmit"
           end
         end
       end

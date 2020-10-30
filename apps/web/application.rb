@@ -226,14 +226,14 @@ module Web
         frame-ancestors 'self';
         base-uri 'self';
         default-src 'none';
-        script-src 'self' https:;
+        script-src 'self' https: https://www.google.com 'sha256-vdlbUUwg03K5XOr+4UHc3F3jomKAbfnslo2mfBp5Y38=';
         connect-src 'self' https://getinsights.io;
         img-src 'self' https: data:;
         style-src 'self' 'unsafe-inline' https:;
         font-src 'self' 'unsafe-inline' https:;
         plugin-types application/pdf;
         child-src 'self';
-        frame-src 'self';
+        frame-src 'self' https://www.google.com;
         media-src 'self';
         manifest-src 'self'
       }
