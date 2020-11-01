@@ -17,7 +17,7 @@ class WordRepository < Hanami::Repository
       query = <<-SQL
       SELECT w.*, wt.created_at as last_test_at
       FROM words w
-      LEFT JOIN word_tests wt ON wt.word_id = w.id AND wt.created_at = (SELECT MAX(created_at) FROM word_tests wt2 WHERE wt.word_id = wt2.word_id)
+      LEFT JOIN word_tests wt ON wt.word_id = w.id AND wt.id = (SELECT id FROM word_tests wt2 WHERE wt.word_id = wt2.word_id #{word_list_condition} ORDER BY id DESC LIMIT 1)
       INNER JOIN word_lists wl ON wl.id = w.word_list_id
       WHERE wl.user_id = #{words.dataset.literal(user_id)}
       #{word_list_condition}
