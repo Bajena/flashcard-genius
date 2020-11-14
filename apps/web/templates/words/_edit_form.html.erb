@@ -1,5 +1,5 @@
 <%=
-  form_for(:word, routes.word_path(word.id), method: :patch, remote: true, autocomplete: "off", "data-method": :patch, class: "hidden edit-word-form") do
+  form_for(:word, routes.word_path(word.id), remote: true, autocomplete: "off", "data-method": :patch, class: "hidden edit-word-form") do
     div class: "card-body" do
       div class: "row margin-bottom-none" do
         div class: "col xs-12" do

@@ -3,6 +3,10 @@ FactoryBot.define do
     name { "A list" }
     user_id { nil }
 
+    trait :anonymous do
+      user_id { nil }
+    end
+
     trait :with_words do
       transient do
         word_count { 1 }
