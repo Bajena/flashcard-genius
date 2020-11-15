@@ -34,10 +34,9 @@ RSpec.describe Web::Controllers::WordLists::Edit, type: :action do
     context "when list is anonymous" do
       let(:word_list_user_id) { nil }
 
-      it "exposes the list with words" do
+      it "exposes the list" do
         expect(response[0]).to eq 200
         expect(exposed_list.id).to eq(word_list.id)
-        expect(exposed_list.words.length).to eq(1)
       end
     end
 

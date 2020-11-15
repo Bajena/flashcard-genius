@@ -10,8 +10,7 @@ module Web
         def call(params)
           @word_list = WordListRepository.new.find(params[:id])
 
-          halt 404 if !@word_list
-          halt 404 if !@word_list.anonymous? && @word_list.user_id != current_user&.id
+          halt 404 if !@word_list&.editable_by?(current_user)
         end
       end
     end

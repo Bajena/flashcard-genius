@@ -26,8 +26,9 @@ RSpec.describe Web::Controllers::WordLists::Show, type: :action do
     context "when list belongs to another user" do
       let(:word_list_id) { other_user_word_list.id }
 
-      it "renders 404" do
-        expect(response[0]).to eq 404
+      it "shows the list" do
+        expect(response[0]).to eq 200
+        expect(exposed_list.id).to eq(other_user_word_list.id)
       end
     end
 

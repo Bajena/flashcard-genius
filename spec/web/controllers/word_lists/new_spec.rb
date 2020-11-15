@@ -13,9 +13,6 @@ RSpec.describe Web::Controllers::WordLists::New, type: :action do
     it "exposes correct data" do
       expect(response[0]).to eq 200
       expect(exposed_list.name).to eq("New list")
-      expect(exposed_list.words.length).to eq(1)
-      expect(exposed_list.words[0].question).to eq(nil)
-      expect(exposed_list.words[0].answer).to eq(nil)
     end
   end
 
@@ -23,9 +20,6 @@ RSpec.describe Web::Controllers::WordLists::New, type: :action do
     it "exposes correct data" do
       expect(response[0]).to eq 200
       expect(exposed_list.name).to eq("New list")
-      expect(exposed_list.words.length).to eq(1)
-      expect(exposed_list.words[0].question).to eq(nil)
-      expect(exposed_list.words[0].answer).to eq(nil)
     end
   end
 end

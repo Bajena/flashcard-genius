@@ -9,8 +9,6 @@ module Web
         ROWS = 4
         CARD_PADDING = 8
 
-        expose :word_list
-
         before :check_list_presence
 
         def call(params)
@@ -46,7 +44,6 @@ module Web
           cards_per_page = COLUMNS * ROWS
 
           pages = (words.length.to_f / cards_per_page).ceil * 2 # * 2 for double sided print
-
 
           pdf = Prawn::Document.new
           pdf.font(::File.join(Hanami.public_directory, "DejaVuSans.ttf"))

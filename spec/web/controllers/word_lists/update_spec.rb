@@ -15,25 +15,10 @@ RSpec.describe Web::Controllers::WordLists::Update, type: :action do
   end
   let(:word_list_params) do
     {
-      name: name,
-      words: words
+      name: name
     }
   end
   let(:name) { "My list" }
-  let(:words) do
-    [
-      {
-        question: "Boy",
-        question_example: "That boy is tall",
-        answer: "Ragazzo",
-        answer_example: "Questo ragazzo é alto"
-      },
-      {
-        question: "Girl",
-        answer: "Ragazza"
-      }
-    ]
-  end
   let(:word_list_id) { word_list.id }
   let(:session) { {} }
   let(:user) { create(:user) }
@@ -72,19 +57,11 @@ RSpec.describe Web::Controllers::WordLists::Update, type: :action do
     context "when list is anonymous" do
       let(:word_list_user_id) { nil }
 
-      it "updates the list and words" do
+      it "updates the list" do
         expect(response[0]).to eq 302
         expect(updated_list.user_id).to eq(nil)
         expect(updated_list.name).to eq(name)
-        expect(updated_list.words.length).to eq(2)
-        expect(updated_list.words[0].question).to eq("Boy")
-        expect(updated_list.words[0].question_example).to eq("That boy is tall")
-        expect(updated_list.words[0].answer).to eq("Ragazzo")
-        expect(updated_list.words[0].answer_example).to eq("Questo ragazzo é alto")
-        expect(updated_list.words[1].question).to eq("Girl")
-        expect(updated_list.words[1].question_example).to eq(nil)
-        expect(updated_list.words[1].answer).to eq("Ragazza")
-        expect(updated_list.words[1].answer_example).to eq(nil)
+        expect(updated_list.words.length).to eq(1)
       end
 
       context "when params include user_id" do
@@ -95,13 +72,7 @@ RSpec.describe Web::Controllers::WordLists::Update, type: :action do
       end
 
       context "when list is invalid" do
-        let(:words) do
-          [
-            {
-              question: "Boy"
-            }
-          ]
-        end
+        let(:name) { "" }
 
         it "exposes the list and renders errors" do
           expect do
@@ -109,20 +80,17 @@ RSpec.describe Web::Controllers::WordLists::Update, type: :action do
           end.not_to change { reload_list.updated_at }
 
           expect(exposed_list.name).to eq(name)
-          expect(exposed_list.words[0].question).to eq("Boy")
-          expect(updated_list.name).to eq("A list")
-          expect(updated_list.words[0].question).to eq("Polska")
-          expect(action.params.error_messages).to eq(["Answer is missing"])
+          expect(action.params.error_messages).to eq(["Name must be filled"])
         end
       end
     end
 
     context "when list belongs to the user" do
-      it "updates the list and words" do
+      it "updates the list" do
         expect(response[0]).to eq 302
         expect(updated_list.user_id).to eq(user.id)
         expect(updated_list.name).to eq(name)
-        expect(updated_list.words.length).to eq(2)
+        expect(updated_list.words.length).to eq(1)
       end
     end
   end
@@ -137,11 +105,11 @@ RSpec.describe Web::Controllers::WordLists::Update, type: :action do
     context "when list is anonymous" do
       let(:word_list_user_id) { nil }
 
-      it "updates the list and words" do
+      it "updates the list" do
         expect(response[0]).to eq 302
         expect(updated_list.user_id).to eq(nil)
         expect(updated_list.name).to eq(name)
-        expect(updated_list.words.length).to eq(2)
+        expect(updated_list.words.length).to eq(1)
       end
     end
   end
