@@ -98,6 +98,25 @@ RSpec.describe Web::Controllers::Words::Create, type: :action do
   end
 
   context "when user isn't logged in" do
+    context "when word list is anonymous" do
+      let(:word_list_user_id) { nil }
+
+      it "creates the Word" do
+        expect do
+          expect(response[0]).to eq 200
+        end.to change { WordRepository.new.all.count }.by(1)
+
+        expect(action.exposures[:word].id).to eq(created_word.id)
+        expect(action.exposures[:word_list].id).to eq(word_list.id)
+
+        expect(created_word.word_list_id).to eq(word_list.id)
+        expect(created_word.question).to eq("Polska")
+        expect(created_word.answer).to eq("Polonia")
+        expect(created_word.question_example).to eq("Kocham Polskę")
+        expect(created_word.answer_example).to eq("Amo Polonia")
+      end
+    end
+
     it "renders 403" do
       expect(response[0]).to eq(403)
     end

@@ -63,6 +63,19 @@ RSpec.describe Web::Controllers::Words::Destroy, type: :action do
   end
 
   context "when user isn't logged in" do
+    context "when word list is anonymous" do
+      let(:word_list_user_id) { nil }
+
+      it "removes the word and word tests" do
+        expect do
+          expect do
+            expect(response[0]).to eq(200)
+            expect(response[2][0]).to eq('ok')
+          end.to change { reload_word }.to(nil)
+        end.to change { WordTestRepository.new.word_tests.count }.to(0)
+      end
+    end
+
     it "renders 403" do
       expect(response[0]).to eq(403)
     end
