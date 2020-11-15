@@ -18,6 +18,7 @@ RSpec.describe Web::Controllers::Sessions::Create, type: :action do
 
     it "sets session.user_id to user's id" do
       response
+      expect(action.session[:user_id]).to eq(user.id)
     end
 
     it "redirects to word lists" do
@@ -39,6 +40,7 @@ RSpec.describe Web::Controllers::Sessions::Create, type: :action do
     it "redirects to login" do
       expect(response).to redirect_to("/login")
       expect(action.exposures[:flash][:error]).to eq("Invalid login information")
+      expect(action.session[:user_id]).to eq(nil)
     end
   end
 end
