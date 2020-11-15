@@ -2,11 +2,11 @@
 
 <% if current_user %>
   <p>
-    The list will be available for viewing/editing to anyone with a link. If you'd like to create a private list you'll have to <%= link_to "sign up", routes.new_user_path %>.
+    The list will be available for viewing to anyone with a link, but you'll be the only person with privilege to edit the list.
   </p>
 <% else %>
   <p>
-    The list will be available for viewing anyone with a link, but you'll be the only person with privilege to edit the list.
+    The list will be available for viewing/editing to anyone with a link. If you'd like to create a private list you'll have to <%= link_to "sign up", routes.new_user_path %>.
   </p>
 <% end %>
 
