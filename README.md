@@ -1,4 +1,5 @@
 # Flashcard Genius
+[![Build Status](https://travis-ci.com/Bajena/flashcard-genius.svg?branch=master)](https://travis-ci.com/Bajena/flashcard-genius)
 
 An app for managing sets of language learning flashcards. Built using [Hanami](https://guides.hanamirb.org/) Ruby framework and [PaperCSS](https://www.getpapercss.com/) framework.
 
