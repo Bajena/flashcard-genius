@@ -12,7 +12,7 @@
           )
         %>
 
-        <% if word_list.editable_by?(current_user) %>
+        <% if word_list.learnable_by?(current_user) %>
           <%=
             link_to(
               "",
@@ -21,7 +21,9 @@
               title: "Learn this list"
             )
           %>
+        <% end %>
 
+        <% if word_list.editable_by?(current_user) %>
           <%=
             link_to(
               "",

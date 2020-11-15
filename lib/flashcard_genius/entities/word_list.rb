@@ -3,7 +3,11 @@ class WordList < Hanami::Entity
     user_id.nil?
   end
 
-  def editable_by?(user)
-    anonymous? || user_id == user&.id
+  def editable_by?(current_user)
+    anonymous? || user_id == current_user&.id
+  end
+
+  def learnable_by?(current_user)
+    !!(current_user && user_id && current_user.id == user_id)
   end
 end
