@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :user, class: UserRepository do
+  factory :user, class: User do
     sequence(:email) { |n| "user#{n}@example.com" }
     password_digest { "123456" }
 
@@ -12,12 +12,11 @@ FactoryBot.define do
     end
 
     initialize_with do
-      new.create(attributes)
+      new(attributes)
     end
 
     to_create do |instance|
-      # Do nothing, because the instance should already have been saved at build
-      # time by the Hanami repository
+      UserRepository.new.create(instance.to_h)
     end
   end
 end
