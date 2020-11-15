@@ -5,7 +5,7 @@ module InvalidUuidHandling
     begin
       yield
     rescue => e
-      raise unless e.message =~ /invalid input syntax for type uuid/
+      raise unless e.message =~ /invalid input syntax .* uuid/
     end
   end
 end
