@@ -12,6 +12,7 @@ gem "hanami-ujs"
 gem "prawn"
 gem 'rack-ssl-enforcer'
 gem "sentry-raven"
+gem 'omniauth-google-oauth2'
 
 group :development do
   # Code reloading

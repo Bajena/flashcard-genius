@@ -86,7 +86,15 @@ module Web
 
       # Configure Rack middleware for this application
       #
-      # middleware.use Rack::Protection
+      middleware.use OmniAuth::Builder do
+        provider(
+          :google_oauth2,
+          ENV["GOOGLE_CLIENT_ID"],
+          ENV["GOOGLE_CLIENT_SECRET"],
+          scope: "userinfo.email",
+          prompt: "select_account"
+        )
+      end
 
       # Default format for the requests that don't specify an HTTP_ACCEPT header
       # Argument: A symbol representation of a mime type, defaults to :html
