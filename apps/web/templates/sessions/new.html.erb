@@ -1,16 +1,29 @@
 <div class="row container container-sm paper">
-  <div class="col sm-12">
+  <div class="col sm-12 padding-bottom-none">
     <div class="row flex-spaces">
       <div class="col lg-6 md-8 sm-12">
         <h3 class="margin-bottom-none margin-top-none">Sign in</h3>
       </div>
     </div>
 
+    <div class="row flex-center">
+      <div class="col sm-7 md-6">
+        <a class="paper-btn google-button" href="<%= routes.google_auth_path %>">
+          <img src="/google_logo.png" class="google-logo no-responsive no-border" alt="Google sign-in" />
+          Sign in with Google
+        </a>
+      </div>
+    </div>
+
+    <div class="row flex-center margin-bottom-none">
+      <p>-&nbsp;or&nbsp;-</p>
+    </div>
+
     <%=
       form_for :user, routes.login_path do
 
-        div class: "row flex-spaces" do
-          div class: "col lg-6 md-8 sm-12" do
+        div class: "row flex-spaces margin-bottom-none" do
+          div class: "col sm-7 md-6 padding-top-none" do
             div class: "form-group" do
               label      :email
               email_field :email, class: "input-block"
@@ -18,8 +31,8 @@
           end
         end
 
-        div class: "row flex-spaces" do
-          div class: "col lg-6 md-8 sm-12" do
+        div class: "row flex-spaces margin-top-none margin-bottom-none" do
+          div class: "col sm-7 md-6" do
             div class: "form-group" do
               label      :password
               password_field :password, class: "input-block"
@@ -28,19 +41,21 @@
         end
 
         div class: "row flex-center" do
-          div class: "col" do
+          div class: "form-group" do
             submit "Login"
           end
         end
       end
     %>
-    <hr>
+
+    <p>
+      <hr>
+    </p>
+
     <div class="row flex-spaces">
-      <div class="col lg-6 md-8 sm-12">
-        <p>
-          Don't have an account yet? Click <%= link_to "here", routes.new_user_path %> to sign up.
-        </p>
-      </div>
+      <p>
+        Don't have an account yet? Click <%= link_to "here", routes.new_user_path %> to sign up.
+      </p>
     </div>
   </div>
 </div>

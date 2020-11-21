@@ -5,12 +5,17 @@ module Web
         include Web::Action
 
         def call(params)
-          repo = UserRepository.new
-          u = repo.by_email(email) || create_user
+          if email
+            repo = UserRepository.new
+            u = repo.by_email(email) || create_user
 
-          session[:user_id] = u.id
+            session[:user_id] = u.id
 
-          redirect_to routes.root_path
+            redirect_to routes.root_path
+          else
+            flash[:error] = "Google login failed"
+            redirect_to routes.login_path
+          end
         end
 
         private
@@ -23,7 +28,13 @@ module Web
         end
 
         def email
-          request.env["omniauth.auth"]["info"]["email"]
+          return if !auth || !auth["info"] || !auth["info"]["email"]
+
+          auth["info"]["email"]
+        end
+
+        def auth
+          request.env["omniauth.auth"]
         end
       end
     end
