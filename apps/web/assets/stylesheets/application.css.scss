@@ -17,6 +17,19 @@ body {
   display: none;
 }
 
+.google-button {
+  text-align: center;
+  width: 100%;
+
+  img.google-logo {
+    display: inline;
+    width: 23px;
+    position: relative;
+    top: 4px;
+    margin-right: 6px;
+  }
+}
+
 nav {
   .nav-brand-wrapper {
     margin-bottom: none;

@@ -3,3 +3,4 @@
 /tmp
 .env.local
 .env.*.local
+.envrc

@@ -7,6 +7,10 @@ An app for managing sets of language learning flashcards. Built using [Hanami](h
 
 ## Setup
 
+Before you start make sure that you export following ENV variables:
+- `GOOGLE_CLIENT_ID` - Google OAuth application's client ID
+- `GOOGLE_CLIENT_SECRET` - Google OAuth application's secret key
+
 How to run tests:
 
 ```
