@@ -3,8 +3,7 @@ sudo: false
 language: ruby
 cache: bundler
 env:
-  - GOOGLE_CLIENT_ID=xyz
-  - GOOGLE_CLIENT_SECRET=zyx
+  - GOOGLE_CLIENT_ID=xyz GOOGLE_CLIENT_SECRET=zyx
 rvm:
   - 2.6.1
 services:
