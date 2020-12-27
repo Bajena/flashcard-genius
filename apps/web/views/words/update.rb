@@ -5,6 +5,7 @@ module Web
         include Web::View
 
         layout false
+        template 'words/create'
       end
     end
   end
