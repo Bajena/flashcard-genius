@@ -290,7 +290,7 @@ module Web
     # PRODUCTION
     #
     configure :production do
-      # scheme 'http'
+      scheme 'http'
       host   'flashcard-genius.com'
       # port   443
 
