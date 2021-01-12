@@ -290,9 +290,9 @@ module Web
     # PRODUCTION
     #
     configure :production do
-      scheme 'https'
+      # scheme 'http'
       host   'flashcard-genius.com'
-      port   443
+      # port   443
 
       assets do
         # Don't compile static assets in production mode (eg. Sass, ES6)
