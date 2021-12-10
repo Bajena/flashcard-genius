@@ -235,7 +235,7 @@ module Web
         frame-ancestors 'self';
         base-uri 'self';
         default-src 'none';
-        script-src 'self' https: https://www.googletagmanager.com;
+        script-src 'self' 'unsafe-inline' https: https://www.googletagmanager.com;
         connect-src 'self' https://getinsights.io https://ka-f.fontawesome.com https://www.googletagmanager.com;
         img-src 'self' https: data: https://www.googletagmanager.com;
         style-src 'self' 'unsafe-inline' https:;
