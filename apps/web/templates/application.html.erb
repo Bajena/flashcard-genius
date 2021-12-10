@@ -85,9 +85,7 @@
   <%= javascript 'application' %>
   <%= javascript "hanami-ujs" %>
 
-  <script src="https://getinsights.io/js/insights.js"></script>
   <% if Hanami.env == "production" %>
-    <%= javascript "getinsights" %>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<%= ENV['GTM_ID'] %>"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
