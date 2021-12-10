@@ -237,7 +237,7 @@ module Web
         default-src 'none';
         script-src 'self' https: https://www.googletagmanager.com;
         connect-src 'self' https://getinsights.io https://ka-f.fontawesome.com https://www.googletagmanager.com;
-        img-src 'self' https: data:;
+        img-src 'self' https: data: https://www.googletagmanager.com;
         style-src 'self' 'unsafe-inline' https:;
         font-src 'self' 'unsafe-inline' https:;
         plugin-types application/pdf;
