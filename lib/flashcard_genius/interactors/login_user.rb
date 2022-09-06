@@ -8,7 +8,8 @@ class LoginUser
   def initialize(repository: UserRepository.new)
     @repository = repository
   end
-
+   
+  # @param params [Hash] Hash including :email and :password keys
   def call(params)
     @params = params
     user = @repository.by_email(params[:email])
