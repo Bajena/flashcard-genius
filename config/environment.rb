@@ -41,6 +41,10 @@ Hanami.configure do
 
   environment :production do
     logger level: :info, formatter: :json, filter: []
+     
+    assets do
+      compile true
+     end
 
     mailer do
       delivery :smtp, address: ENV.fetch('SMTP_HOST'), port: ENV.fetch('SMTP_PORT')
