@@ -15,7 +15,7 @@ Before you start make sure that you export following ENV variables:
 How to run tests:
 
 ```
-% bundle exec rake
+% bundle exec rake 
 ```
 
 How to run the development console:
