@@ -38,3 +38,4 @@ How to prepare (create and migrate) DB for `development` and `test` environments
 % HANAMI_ENV=test bundle exec hanami db prepare
 ```
 
+
